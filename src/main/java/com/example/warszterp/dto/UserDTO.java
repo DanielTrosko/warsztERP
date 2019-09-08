@@ -27,13 +27,15 @@ public class UserDTO {
 
     private boolean enabled;
 
-    private String adress;
+    private Integer apartamentNumber;
 
     private Integer houseNumber;
 
     private String city;
 
     private String postCode;
+
+    private String street;
 
 
 }
