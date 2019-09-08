@@ -12,10 +12,7 @@ import javax.validation.constraints.NotNull;
 public class User extends BaseUser {
     @Embedded
     private Address address;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "car_id", nullable = false)
-    @NotNull
-    private Car car;
+
 
 
 }
