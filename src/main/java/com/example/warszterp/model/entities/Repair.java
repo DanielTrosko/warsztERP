@@ -26,7 +26,7 @@ public class Repair extends BaseEntity {
     @Column
     @NotBlank
     private String scopeOfWork;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "car_id", nullable = false)
     private Car car;
 

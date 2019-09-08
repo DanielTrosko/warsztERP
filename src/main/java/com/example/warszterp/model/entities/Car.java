@@ -25,7 +25,7 @@ public class Car extends BaseEntity {
     @Column
     @NotBlank
     private Fuel fuel;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     @NotNull
     private User user;
