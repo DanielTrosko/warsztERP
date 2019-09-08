@@ -1,12 +1,15 @@
 package com.example.warszterp.model.entities;
 
 
+import lombok.Getter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
+@Getter
 public class Authorities {
 
     @Id

@@ -1,12 +1,18 @@
 package com.example.warszterp.model.entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
-public class Repair extends BaseEntity{
+@NoArgsConstructor
+@Getter @Setter
+public class Repair extends BaseEntity {
 
     @Column
     @NotNull
