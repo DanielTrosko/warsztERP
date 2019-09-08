@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @Embeddable
 @Getter @Setter
-public class Address extends BaseEntity {
+public class Address {
 
     @Column
     @NotBlank
@@ -26,4 +26,5 @@ public class Address extends BaseEntity {
     @Column
     @NotBlank
     private String postCode;
+
 }

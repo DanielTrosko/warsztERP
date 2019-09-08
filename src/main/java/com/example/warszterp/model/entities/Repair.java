@@ -26,11 +26,10 @@ public class Repair extends BaseEntity {
     @Column
     @NotBlank
     private String scopeOfWork;
-    @Column
-    @NotNull
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "car_id", nullable = false)
     private Car car;
+
 
 
 }

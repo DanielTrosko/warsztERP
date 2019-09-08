@@ -3,18 +3,16 @@ package com.example.warszterp.model.entities;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
-@Entity
 @Getter @Setter
+@MappedSuperclass
 public abstract class BaseUser {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "created_on")
     private LocalDateTime createdOn;
@@ -35,4 +33,26 @@ public abstract class BaseUser {
     @NotNull
     @Column(name = "enabled")
     private boolean enabled;
+
+    @PrePersist
+    public void prePersist(){
+        createdOn = LocalDateTime.now();
+    }
+    @PreUpdate
+    public void preUpdate(){
+        updateOn = LocalDateTime.now();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BaseUser baseUser = (BaseUser) o;
+        return Objects.equals(id, baseUser.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
