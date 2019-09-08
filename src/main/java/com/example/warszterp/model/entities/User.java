@@ -9,7 +9,6 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Getter @Setter
 @NoArgsConstructor
-@DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.INTEGER)
 public class User extends BaseUser {
     @Embedded
     private Address address;

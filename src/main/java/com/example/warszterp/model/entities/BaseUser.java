@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -21,6 +22,9 @@ public abstract class BaseUser {
     @Column
     @NotNull
     private String email;
+    @Column
+    @NotBlank
+    private String username;
     @Column
     @NotNull
     private String password;

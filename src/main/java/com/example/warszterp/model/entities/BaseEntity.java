@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Getter @Setter
@@ -12,6 +13,10 @@ public abstract class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "created_on")
+    private LocalDateTime createdOn;
+    @Column(name = "updated_on")
+    private LocalDateTime updateOn;
 
     @Override
     public boolean equals(Object o) {
@@ -24,5 +29,14 @@ public abstract class BaseEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @PrePersist
+    public void prePersist(){
+        createdOn = LocalDateTime.now();
+    }
+    @PreUpdate
+    public void preUpdate(){
+        updateOn = LocalDateTime.now();
     }
 }
