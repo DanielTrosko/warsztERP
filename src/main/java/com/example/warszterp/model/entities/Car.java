@@ -1,10 +1,16 @@
 package com.example.warszterp.model.entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@NoArgsConstructor
+@Setter @Getter
 public class Car extends BaseEntity {
 
     @Column

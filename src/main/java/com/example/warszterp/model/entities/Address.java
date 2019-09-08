@@ -1,11 +1,15 @@
 package com.example.warszterp.model.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Embeddable
-public class Address extends BaseEntity{
+@Getter @Setter
+public class Address {
 
     @Column
     @NotBlank
@@ -22,4 +26,5 @@ public class Address extends BaseEntity{
     @Column
     @NotBlank
     private String postCode;
+
 }
