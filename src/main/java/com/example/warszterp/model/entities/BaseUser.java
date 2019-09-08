@@ -9,7 +9,8 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Getter @Setter
+@Getter
+@Setter
 @MappedSuperclass
 public abstract class BaseUser {
     @Id
@@ -39,11 +40,12 @@ public abstract class BaseUser {
     private boolean enabled;
 
     @PrePersist
-    public void prePersist(){
+    public void prePersist() {
         createdOn = LocalDateTime.now();
     }
+
     @PreUpdate
-    public void preUpdate(){
+    public void preUpdate() {
         updateOn = LocalDateTime.now();
     }
 
