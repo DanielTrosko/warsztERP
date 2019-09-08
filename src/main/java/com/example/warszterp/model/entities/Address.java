@@ -5,10 +5,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Embeddable
-public class Address {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Address extends BaseEntity{
+
     @Column
     @NotBlank
     private String street;

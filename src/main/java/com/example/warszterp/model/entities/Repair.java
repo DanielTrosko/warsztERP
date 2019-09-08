@@ -6,10 +6,8 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
-public class Repair {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Repair extends BaseEntity{
+
     @Column
     @NotNull
     private LocalDate dateOfAdmission;
@@ -22,6 +20,11 @@ public class Repair {
     @Column
     @NotBlank
     private String scopeOfWork;
+    @Column
+    @NotNull
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "car_id", nullable = false)
+    private Car car;
 
 
 }

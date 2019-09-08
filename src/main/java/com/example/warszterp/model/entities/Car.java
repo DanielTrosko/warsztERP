@@ -5,10 +5,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Car {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Car extends BaseEntity {
+
     @Column
     @NotBlank
     private String mark;

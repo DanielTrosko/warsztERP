@@ -1,12 +1,15 @@
 package com.example.warszterp.model.entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Entity
+@Getter @Setter
+@NoArgsConstructor
+public class User extends BaseEntity{
     @Column
     @NotNull
     private String email;
