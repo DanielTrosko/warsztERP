@@ -25,5 +25,24 @@ public class UserMapper {
         return user;
         }
 
+        public static UserDTO toDTO (User user){
+        UserDTO userDTO = new UserDTO();
+        Address address = user.getAddress();
+        userDTO.setApartamentNumber(address.getApartmentNumber());
+        userDTO.setCity(address.getCity());
+        userDTO.setHouseNumber(address.getHouseNumber());
+        userDTO.setPostCode(address.getPostCode());
+        userDTO.setStreet(address.getStreet());
+
+        userDTO.setEmail(user.getEmail());
+        userDTO.setId(user.getId());
+        userDTO.setName(user.getEmail());
+        userDTO.setPassword(user.getPassword());
+        userDTO.setSurname(user.getSurname());
+        userDTO.setUsername(user.getUsername());
+        userDTO.setEnabled(true);
+
+        return userDTO;
+        }
 
 }
