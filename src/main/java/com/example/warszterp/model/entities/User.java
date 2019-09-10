@@ -6,13 +6,16 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 public class User extends BaseUser {
-    @Embedded
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_address_id", nullable = false)
+    @NotNull
     private Address address;
-
 
 
 }

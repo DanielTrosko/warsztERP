@@ -7,6 +7,7 @@ import com.example.warszterp.model.entities.User;
 public class UserMapper {
     public static User userToEntity(UserDTO userDTO){
         Address address = new Address();
+        address.setId(userDTO.getAddressId());
         address.setApartmentNumber(userDTO.getApartamentNumber());
         address.setCity(userDTO.getCity());
         address.setHouseNumber(userDTO.getHouseNumber());

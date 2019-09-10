@@ -7,10 +7,16 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-@Embeddable
+@Entity
+@Table
 @Getter @Setter
 public class Address {
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
+    private Long id;
     @Column
     @NotBlank
     private String street;
