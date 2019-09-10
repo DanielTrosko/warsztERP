@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDateTime;
 
 @Getter @Setter
 public class UserDTO {
@@ -24,8 +25,9 @@ public class UserDTO {
 
     @NotBlank
     private String surname;
-
     private boolean enabled;
+
+    private Long addressId;
 
     private Integer apartamentNumber;
 
@@ -36,6 +38,7 @@ public class UserDTO {
     private String postCode;
 
     private String street;
+
 
 
 }

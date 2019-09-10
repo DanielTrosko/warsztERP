@@ -39,6 +39,7 @@ public abstract class BaseUser {
     @Column(name = "enabled")
     private boolean enabled;
 
+
     @PrePersist
     public void prePersist() {
         createdOn = LocalDateTime.now();
