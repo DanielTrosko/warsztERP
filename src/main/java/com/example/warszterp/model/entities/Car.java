@@ -5,28 +5,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @NoArgsConstructor
 @Setter @Getter
 public class Car extends BaseEntity {
 
-    @Column
-    @NotBlank
-    private String mark;
-    @Column
-    @NotBlank
+    @Column(nullable = false)
+    private String make;
+    @Column(nullable = false)
     private String model;
-    @Column
-    @NotNull
+    @Column(nullable = false)
     private Integer year;
-    @Column
-    @NotBlank
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private Fuel fuel;
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    @NotNull
     private User user;
 }
