@@ -20,7 +20,14 @@ public class Car extends BaseEntity {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Fuel fuel;
+    @Enumerated(EnumType.STRING)
+    private CarType type;
+    @Column(name = "plate_no")
+    private String plateNumber;
+    @Column(name = "vin_no")
+    private String vinNo;
+
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private User owner;
 }

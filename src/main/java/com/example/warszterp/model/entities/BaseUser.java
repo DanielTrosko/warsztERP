@@ -18,16 +18,14 @@ public abstract class BaseUser {
     private LocalDateTime createdOn;
     @Column(name = "updated_on")
     private LocalDateTime updateOn;
-    @Column(nullable = false)
     private String email;
-    @Column(nullable = false)
     private String username;
-    @Column(nullable = false)
     private String password;
     @Column(name = "first_name", nullable = false)
     private String firstName;
     @Column(nullable = false)
     private String surname;
+    private String company;
     @Column(name = "enabled", nullable = false)
     private boolean enabled;
     @Column(name = "phone_number", nullable = false)

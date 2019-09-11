@@ -29,9 +29,7 @@ public class UserDTO {
 
     private Long addressId;
 
-    private Integer apartamentNumber;
-
-    private Integer houseNumber;
+    private String houseNumber;
 
     private String city;
 
