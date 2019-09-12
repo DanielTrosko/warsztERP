@@ -5,6 +5,7 @@ import com.example.warszterp.model.entities.User;
 import com.example.warszterp.model.repositories.AddressRepository;
 import com.example.warszterp.model.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,6 +33,7 @@ public class UserService {
     public void createUser(UserDTO userDTO) {
         User user = userToEntity(userDTO);
         user.setEnabled(true);
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         addressRepository.save(user.getAddress());
         userRepository.save(user);
         insertWithQuery(user.getUsername());
