@@ -1,6 +1,6 @@
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%--@elvariable id="UserDTO" type="com.example.warszterp.dto.UserDTO"--%>
+<%--@elvariable id="UserDTO" type="com.example.warszterp.dto.UserDto"--%>
 <form:form method="POST" action="/createuser" modelAttribute="UserDTO">
     <form:input class="formControl" type="text" path="id" hidden="true"/>
 

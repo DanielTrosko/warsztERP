@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%--@elvariable id="UserDTO" type="com.example.warszterp.dto.UserDTO"--%>
+<%--@elvariable id="UserDTO" type="com.example.warszterp.dto.UserDto"--%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -10,9 +10,9 @@
 <div>
     <form:form method="post" action="/car/acceptance/add" modelAttribute="data">
 
-        <form:input path="userId"/>
-        <form:input path="carId" />
-        <form:input path="repairId" />
+        <form:input path="userId" hidden="true"/>
+        <form:input path="carId" hidden="true"/>
+        <form:input path="repairId" hidden="true"/>
     <fieldset>
         <legend>dane karty przyjęcia pojazdu</legend>
         <form:label  path="dateOfAdmission">Data przyjęcia pojazdu</form:label>

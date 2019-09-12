@@ -1,9 +1,30 @@
 package com.example.warszterp.mapper;
 
 import com.example.warszterp.dto.AcceptanceDataDto;
+import com.example.warszterp.dto.CarDto;
 import com.example.warszterp.model.entities.Car;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class CarMapper {
+
+    public static CarDto toDto(Car car){
+
+        CarDto carDTO = new CarDto();
+        carDTO.setFuel(car.getFuel());
+        carDTO.setMake(car.getMake());
+        carDTO.setModel(car.getModel());
+        carDTO.setYear(car.getYear());
+        carDTO.setId(car.getId());
+        carDTO.setOwner(car.getOwner());
+        carDTO.setPlateNumber(car.getPlateNumber());
+        carDTO.setType(car.getType());
+        carDTO.setVinNo(car.getVinNo());
+
+        return carDTO;
+    }
+
 
     public static AcceptanceDataDto entityToAcceptanceData(Car car) {
         AcceptanceDataDto data = new AcceptanceDataDto();
@@ -46,5 +67,9 @@ public class CarMapper {
         car.setYear(data.getYear());
         car.setId(data.getCarId());
         return car;
+    }
+
+    public static List<CarDto> toDtoList(List<Car> list){
+        return list.stream().map(car -> toDto(car)).collect(Collectors.toList());
     }
 }

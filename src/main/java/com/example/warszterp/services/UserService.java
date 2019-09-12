@@ -1,7 +1,7 @@
 package com.example.warszterp.services;
 
 import com.example.warszterp.dto.AcceptanceDataDto;
-import com.example.warszterp.dto.UserDTO;
+import com.example.warszterp.dto.UserDto;
 import com.example.warszterp.mapper.UserMapper;
 import com.example.warszterp.model.entities.Address;
 import com.example.warszterp.model.entities.User;
@@ -14,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import java.util.List;
 
 import static com.example.warszterp.mapper.UserMapper.userToEntity;
 
@@ -33,7 +35,7 @@ public class UserService {
         this.addressRepository = addressRepository;
     }
 
-    public void createUser(UserDTO userDTO) {
+    public void createUser(UserDto userDTO) {
         User user = userToEntity(userDTO);
         user.setEnabled(true);
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
@@ -42,7 +44,7 @@ public class UserService {
         insertWithQuery(user.getUsername());
     }
 
-    public void updateUser(UserDTO userDTO){
+    public void updateUser(UserDto userDTO){
         userRepository.save(userToEntity(userDTO));
     }
 
@@ -51,7 +53,6 @@ public class UserService {
                 .setParameter(1, username)
                 .executeUpdate();
     }
-    @Transactional
     public User getDataAndSave(AcceptanceDataDto data){
 
         User user = new User();
@@ -79,11 +80,18 @@ public class UserService {
         return UserMapper.entityToAcceptanceData(dataDto ,user);
     }
 
-    @Transactional
     public User getDataAndUpdate(AcceptanceDataDto data){
 
         User user = new User();
         user = UserMapper.acceptanceDataToEntity(data);
         return userRepository.save(user);
+    }
+
+    public List<UserDto> getAll(){
+      return UserMapper.toDtoList(userRepository.findAll());
+    }
+
+    public void deleteUser(Long id){
+        userRepository.deleteById(id);
     }
 }
