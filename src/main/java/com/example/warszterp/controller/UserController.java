@@ -39,4 +39,24 @@ public class UserController {
         model.addAttribute("msg", "wiadomosc");
         return "/";
     }
+
+    @RequestMapping(value = "/login")
+    public String login() {
+        return "/views/login";
+    }
+
+    @RequestMapping(value = "successlogin")
+    public String successLogin() {
+        return "/views/successlogin";
+    }
+
+    @RequestMapping(value = "/failurelogin")
+    public String failureLogin() {
+        return "/views/failurelogin";
+    }
+
+    @RequestMapping(value = "/")
+    public String index() {
+        return "/views/index";
+    }
 }
