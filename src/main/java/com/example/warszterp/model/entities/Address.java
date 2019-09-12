@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity
 @Table
@@ -15,22 +13,14 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
     private Long id;
-    @Column
-    @NotBlank
+    @Column(nullable = false)
     private String street;
-    @Column
-    @NotNull
-    private Integer houseNumber;
-    @Column
-    @NotNull
-    private Integer apartmentNumber;
-    @Column
-    @NotBlank
+    @Column(name = "house_number", nullable = false)
+    private String houseNumber;
+    @Column(nullable = false)
     private String city;
-    @Column
-    @NotBlank
+    @Column(name = "postal_code", nullable = false)
     private String postCode;
 
 }

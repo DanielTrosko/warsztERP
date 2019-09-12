@@ -2,36 +2,21 @@ package com.example.warszterp.model.entities;
 
 
 import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Getter
+@Setter
 public class Authorities {
 
     @Id
-    @NotEmpty
-    @Column(name = "username")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name = "username", nullable = false)
     private String username;
-    @Column(name = "authority")
+    @Column(name = "authority", nullable = false)
     private String authority;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
 }

@@ -5,31 +5,28 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+
 
 @Entity
 @NoArgsConstructor
 @Getter @Setter
 public class Repair extends BaseEntity {
 
-    @Column
-    @NotNull
+    @Column(name = "acceptance_no")
+    private String acceptanceNumber;
+    @Column(name ="date_of_admission", nullable = false)
     private LocalDate dateOfAdmission;
-    @Column
-    @NotNull
+    @Column(name = "date_of_pickup", nullable = false)
     private LocalDate dataOfPickup;
-    @Column
-    @NotNull
+    @Column(name = "estimated_repair_cost", nullable = false)
     private Integer estimatedRepairCost;
-    @Column
-    @NotBlank
+    @Column(name = "scope_of_work", nullable = false)
     private String scopeOfWork;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "car_id", nullable = false)
     private Car car;
-
-
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

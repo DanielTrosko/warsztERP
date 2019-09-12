@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -20,24 +18,18 @@ public abstract class BaseUser {
     private LocalDateTime createdOn;
     @Column(name = "updated_on")
     private LocalDateTime updateOn;
-    @Column
-    @NotNull
     private String email;
-    @Column
-    @NotBlank
     private String username;
-    @Column
-    @NotNull
     private String password;
-    @Column
-    @NotNull
-    private String name;
-    @Column
-    @NotNull
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
+    @Column(nullable = false)
     private String surname;
-    @NotNull
-    @Column(name = "enabled")
+    private String company;
+    @Column(name = "enabled", nullable = false)
     private boolean enabled;
+    @Column(name = "phone_number", nullable = false)
+    private String phoneNumber;
 
 
     @PrePersist
