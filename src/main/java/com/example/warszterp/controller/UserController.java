@@ -37,7 +37,7 @@ public class UserController {
             log.info("Update user:" + userDTO.getUsername());
         }
         model.addAttribute("msg", "wiadomosc");
-        return "/";
+        return "/views/index";
     }
 
     @RequestMapping(value = "/login")

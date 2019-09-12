@@ -36,6 +36,7 @@ public class UserDTO {
     private String postCode;
 
     private String street;
+    private String phoneNumber;
 
 
 

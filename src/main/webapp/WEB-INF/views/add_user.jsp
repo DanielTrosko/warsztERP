@@ -25,6 +25,10 @@
         <form:input class="formControl" type="email" required="required" path="email"/>
     </div>
     <div class="form-group">
+        <form:label path="phoneNumber">Phone number</form:label>
+        <form:input class="formControl" type="text" required="required" path="phoneNumber"/>
+    </div>
+    <div class="form-group">
         <form:label path="city">City</form:label>
         <form:input class="formControl" type="text" required="required" path="city"/>
     </div>
@@ -39,10 +43,6 @@
     <div class="form-group">
         <form:label path="houseNumber">House Number</form:label>
         <form:input class="formControl" type="text" required="required" path="houseNumber"/>
-    </div>
-    <div class="form-group">
-        <form:label path="apartamentNumber">Appartment Number</form:label>
-        <form:input class="formControl" type="text" required="required" path="apartamentNumber"/>
     </div>
 
     <form:button type="submit" class="btn btn-primary" value="Submit">Register</form:button>
