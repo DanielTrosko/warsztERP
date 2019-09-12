@@ -40,4 +40,13 @@ public class CarService {
             Car car = carRepository.getOne(dataDto.getCarId());
              return CarMapper.entityToAcceptanceData(dataDto ,car);
          }
+
+
+    public Car getDataAndUpdate(AcceptanceDataDto data, User user){
+        Car car = new Car();
+        car = CarMapper.acceptanceDataToEntity(data);
+        car.setOwner(user);
+        return carRepository.save(car);
+
+    }
 }

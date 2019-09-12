@@ -3,7 +3,6 @@ package com.example.warszterp.services;
 import com.example.warszterp.dto.AcceptanceDataDto;
 import com.example.warszterp.dto.RepairDto;
 import com.example.warszterp.model.entities.Car;
-import com.example.warszterp.model.entities.Repair;
 import com.example.warszterp.model.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,10 +38,15 @@ public class AcceptanceService {
 
     public AcceptanceDataDto getById(Long id){
         AcceptanceDataDto dataDto = new AcceptanceDataDto();
-        dataDto = repairService.getDatafromRepair(id);
+        dataDto = repairService.getDataFromRepair(id);
         dataDto = carService.getDataFromCar(dataDto);
         dataDto = userService.getDataFromUser(dataDto);
-
         return dataDto;
+    }
+
+    public void update(AcceptanceDataDto dataDto){
+         User user = userService.getDataAndUpdate(dataDto);
+        Car car = carService.getDataAndUpdate(dataDto, user);
+        repairService.getDataAndUpdate(dataDto, user, car);
     }
 }

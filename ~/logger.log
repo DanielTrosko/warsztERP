@@ -4884,3 +4884,273 @@ javax.servlet.jsp.JspTagException: Don't know how to iterate over supplied "item
 2019-09-12 12:35:46.687  INFO 8156 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
 2019-09-12 12:35:46.746  INFO 8156 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
 2019-09-12 12:35:47.909  WARN 8156 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [293] milliseconds.
+2019-09-12 12:47:25.575  INFO 4600 --- [main] com.example.warszterp.DemoApplication    : Starting DemoApplication on LUIGIP with PID 4600 (C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP\target\classes started by CP24 in C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP)
+2019-09-12 12:47:25.577  INFO 4600 --- [main] com.example.warszterp.DemoApplication    : No active profile set, falling back to default profiles: default
+2019-09-12 12:47:27.059  INFO 4600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-09-12 12:47:27.192  INFO 4600 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 124ms. Found 4 repository interfaces.
+2019-09-12 12:47:27.526  INFO 4600 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a3f39039] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-12 12:47:27.778  INFO 4600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-09-12 12:47:27.811  INFO 4600 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-12 12:47:27.811  INFO 4600 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-12 12:47:28.096  INFO 4600 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-09-12 12:47:28.108  INFO 4600 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-12 12:47:28.109  INFO 4600 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2447 ms
+2019-09-12 12:47:28.296  INFO 4600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-12 12:47:28.598  INFO 4600 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-12 12:47:28.654  INFO 4600 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-12 12:47:28.827  INFO 4600 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.11.Final}
+2019-09-12 12:47:28.829  INFO 4600 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-09-12 12:47:28.998  INFO 4600 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-09-12 12:47:29.161  INFO 4600 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-09-12 12:47:29.809  INFO 4600 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-09-12 12:47:30.394  INFO 4600 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-12 12:47:30.428  WARN 4600 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-09-12 12:47:30.640  INFO 4600 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-09-12 12:47:30.643  INFO 4600 --- [main] com.example.warszterp.DemoApplication    : Started DemoApplication in 5.713 seconds (JVM running for 7.256)
+2019-09-12 12:47:35.170  INFO 4600 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-12 12:47:35.171  INFO 4600 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-12 12:47:35.179  INFO 4600 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-09-12 12:47:35.244  INFO 4600 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-09-12 12:47:36.446  WARN 4600 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [289] milliseconds.
+2019-09-12 13:00:47.393  INFO 4884 --- [main] com.example.warszterp.DemoApplication    : Starting DemoApplication on LUIGIP with PID 4884 (C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP\target\classes started by CP24 in C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP)
+2019-09-12 13:00:47.394  INFO 4884 --- [main] com.example.warszterp.DemoApplication    : No active profile set, falling back to default profiles: default
+2019-09-12 13:00:48.815  INFO 4884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-09-12 13:00:48.945  INFO 4884 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120ms. Found 4 repository interfaces.
+2019-09-12 13:00:49.301  INFO 4884 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a9f0fef3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-12 13:00:49.568  INFO 4884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-09-12 13:00:49.594  INFO 4884 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-12 13:00:49.594  INFO 4884 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-12 13:00:49.884  INFO 4884 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-09-12 13:00:49.894  INFO 4884 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-12 13:00:49.894  INFO 4884 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2441 ms
+2019-09-12 13:00:50.037  INFO 4884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-12 13:00:50.327  INFO 4884 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-12 13:00:50.392  INFO 4884 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-12 13:00:50.486  INFO 4884 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.11.Final}
+2019-09-12 13:00:50.489  INFO 4884 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-09-12 13:00:50.634  INFO 4884 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-09-12 13:00:50.776  INFO 4884 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-09-12 13:00:51.381  INFO 4884 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-09-12 13:00:51.922  INFO 4884 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-12 13:00:51.953  WARN 4884 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-09-12 13:00:52.168  INFO 4884 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-09-12 13:00:52.170  INFO 4884 --- [main] com.example.warszterp.DemoApplication    : Started DemoApplication in 5.409 seconds (JVM running for 6.933)
+2019-09-12 13:01:08.283  INFO 4884 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-12 13:01:08.284  INFO 4884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-12 13:01:08.293  INFO 4884 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-09-12 13:01:08.350  INFO 4884 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-09-12 13:01:09.540  WARN 4884 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [293] milliseconds.
+2019-09-12 13:04:01.530  INFO 8660 --- [main] com.example.warszterp.DemoApplication    : Starting DemoApplication on LUIGIP with PID 8660 (C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP\target\classes started by CP24 in C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP)
+2019-09-12 13:04:01.532  INFO 8660 --- [main] com.example.warszterp.DemoApplication    : No active profile set, falling back to default profiles: default
+2019-09-12 13:04:02.875  INFO 8660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-09-12 13:04:02.984  INFO 8660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100ms. Found 4 repository interfaces.
+2019-09-12 13:04:03.368  INFO 8660 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5b4baffb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-12 13:04:03.649  INFO 8660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-09-12 13:04:03.673  INFO 8660 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-12 13:04:03.673  INFO 8660 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-12 13:04:03.945  INFO 8660 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-09-12 13:04:03.954  INFO 8660 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-12 13:04:03.954  INFO 8660 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2355 ms
+2019-09-12 13:04:04.085  INFO 8660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-12 13:04:04.379  INFO 8660 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-12 13:04:04.428  INFO 8660 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-12 13:04:04.534  INFO 8660 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.11.Final}
+2019-09-12 13:04:04.538  INFO 8660 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-09-12 13:04:04.697  INFO 8660 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-09-12 13:04:04.817  INFO 8660 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-09-12 13:04:05.449  INFO 8660 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-09-12 13:04:06.049  INFO 8660 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-12 13:04:06.081  WARN 8660 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-09-12 13:04:06.303  INFO 8660 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-09-12 13:04:06.306  INFO 8660 --- [main] com.example.warszterp.DemoApplication    : Started DemoApplication in 5.38 seconds (JVM running for 6.98)
+2019-09-12 13:04:15.264  INFO 8660 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-12 13:04:15.265  INFO 8660 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-12 13:04:15.273  INFO 8660 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-09-12 13:04:15.335  INFO 8660 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-09-12 13:04:16.549  WARN 8660 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [302] milliseconds.
+2019-09-12 13:12:18.404  INFO 15344 --- [main] com.example.warszterp.DemoApplication    : Starting DemoApplication on LUIGIP with PID 15344 (C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP\target\classes started by CP24 in C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP)
+2019-09-12 13:12:18.407  INFO 15344 --- [main] com.example.warszterp.DemoApplication    : No active profile set, falling back to default profiles: default
+2019-09-12 13:12:19.818  INFO 15344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-09-12 13:12:19.960  INFO 15344 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 131ms. Found 4 repository interfaces.
+2019-09-12 13:12:20.341  INFO 15344 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a3f39039] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-12 13:12:20.635  INFO 15344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-09-12 13:12:20.658  INFO 15344 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-12 13:12:20.659  INFO 15344 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-12 13:12:20.928  INFO 15344 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-09-12 13:12:20.938  INFO 15344 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-12 13:12:20.939  INFO 15344 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2460 ms
+2019-09-12 13:12:21.070  INFO 15344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-12 13:12:21.362  INFO 15344 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-12 13:12:21.413  INFO 15344 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-12 13:12:21.525  INFO 15344 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.11.Final}
+2019-09-12 13:12:21.526  INFO 15344 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-09-12 13:12:21.663  INFO 15344 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-09-12 13:12:21.784  INFO 15344 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-09-12 13:12:22.405  INFO 15344 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-09-12 13:12:22.942  INFO 15344 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-12 13:12:22.975  WARN 15344 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-09-12 13:12:23.165  INFO 15344 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-09-12 13:12:23.167  INFO 15344 --- [main] com.example.warszterp.DemoApplication    : Started DemoApplication in 5.32 seconds (JVM running for 6.859)
+2019-09-12 13:12:37.827  INFO 15344 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-12 13:12:37.828  INFO 15344 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-12 13:12:37.837  INFO 15344 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2019-09-12 13:12:37.891  INFO 15344 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-09-12 13:12:39.045  WARN 15344 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [276] milliseconds.
+2019-09-12 13:16:57.432  INFO 16984 --- [main] com.example.warszterp.DemoApplication    : Starting DemoApplication on LUIGIP with PID 16984 (C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP\target\classes started by CP24 in C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP)
+2019-09-12 13:16:57.433  INFO 16984 --- [main] com.example.warszterp.DemoApplication    : No active profile set, falling back to default profiles: default
+2019-09-12 13:16:58.922  INFO 16984 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-09-12 13:16:59.139  INFO 16984 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 205ms. Found 4 repository interfaces.
+2019-09-12 13:16:59.731  INFO 16984 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$30dc68] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-12 13:17:00.019  INFO 16984 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-09-12 13:17:00.055  INFO 16984 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-12 13:17:00.056  INFO 16984 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-12 13:17:00.361  INFO 16984 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-09-12 13:17:00.375  INFO 16984 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-12 13:17:00.375  INFO 16984 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2857 ms
+2019-09-12 13:17:00.528  INFO 16984 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-12 13:17:00.899  INFO 16984 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-12 13:17:00.962  INFO 16984 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-12 13:17:01.191  INFO 16984 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.11.Final}
+2019-09-12 13:17:01.196  INFO 16984 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-09-12 13:17:01.387  INFO 16984 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-09-12 13:17:01.525  INFO 16984 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-09-12 13:17:02.126  INFO 16984 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-09-12 13:17:02.632  INFO 16984 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-12 13:17:02.664  WARN 16984 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-09-12 13:17:02.875  INFO 16984 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-09-12 13:17:02.878  INFO 16984 --- [main] com.example.warszterp.DemoApplication    : Started DemoApplication in 6.042 seconds (JVM running for 7.499)
+2019-09-12 13:17:12.833  INFO 16984 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-12 13:17:12.834  INFO 16984 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-12 13:17:12.842  INFO 16984 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-09-12 13:17:12.898  INFO 16984 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-09-12 13:17:14.111  WARN 16984 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [280] milliseconds.
+2019-09-12 13:19:59.696  INFO 16244 --- [main] com.example.warszterp.DemoApplication    : Starting DemoApplication on LUIGIP with PID 16244 (C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP\target\classes started by CP24 in C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP)
+2019-09-12 13:19:59.698  INFO 16244 --- [main] com.example.warszterp.DemoApplication    : No active profile set, falling back to default profiles: default
+2019-09-12 13:20:01.222  INFO 16244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-09-12 13:20:01.367  INFO 16244 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 132ms. Found 4 repository interfaces.
+2019-09-12 13:20:01.688  INFO 16244 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$54b0c55e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-12 13:20:01.926  INFO 16244 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-09-12 13:20:01.952  INFO 16244 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-12 13:20:01.952  INFO 16244 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-12 13:20:02.271  INFO 16244 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-09-12 13:20:02.282  INFO 16244 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-12 13:20:02.282  INFO 16244 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2475 ms
+2019-09-12 13:20:02.417  INFO 16244 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-12 13:20:02.694  INFO 16244 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-12 13:20:02.740  INFO 16244 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-12 13:20:02.840  INFO 16244 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.11.Final}
+2019-09-12 13:20:02.843  INFO 16244 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-09-12 13:20:02.981  INFO 16244 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-09-12 13:20:03.101  INFO 16244 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-09-12 13:20:03.692  INFO 16244 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-09-12 13:20:04.225  INFO 16244 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-12 13:20:04.255  WARN 16244 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-09-12 13:20:04.478  INFO 16244 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-09-12 13:20:04.480  INFO 16244 --- [main] com.example.warszterp.DemoApplication    : Started DemoApplication in 5.388 seconds (JVM running for 6.886)
+2019-09-12 13:20:12.370  INFO 16244 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-12 13:20:12.371  INFO 16244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-12 13:20:12.381  INFO 16244 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2019-09-12 13:20:12.437  INFO 16244 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-09-12 13:20:13.633  WARN 16244 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [290] milliseconds.
+2019-09-12 13:21:32.824  INFO 16840 --- [main] com.example.warszterp.DemoApplication    : Starting DemoApplication on LUIGIP with PID 16840 (C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP\target\classes started by CP24 in C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP)
+2019-09-12 13:21:32.828  INFO 16840 --- [main] com.example.warszterp.DemoApplication    : No active profile set, falling back to default profiles: default
+2019-09-12 13:21:34.310  INFO 16840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-09-12 13:21:34.443  INFO 16840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120ms. Found 4 repository interfaces.
+2019-09-12 13:21:34.826  INFO 16840 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$eb041e5e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-12 13:21:35.076  INFO 16840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-09-12 13:21:35.101  INFO 16840 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-12 13:21:35.102  INFO 16840 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-12 13:21:35.392  INFO 16840 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-09-12 13:21:35.401  INFO 16840 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-12 13:21:35.402  INFO 16840 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2503 ms
+2019-09-12 13:21:35.529  INFO 16840 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-12 13:21:35.881  INFO 16840 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-12 13:21:35.930  INFO 16840 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-12 13:21:36.028  INFO 16840 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.11.Final}
+2019-09-12 13:21:36.030  INFO 16840 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-09-12 13:21:36.170  INFO 16840 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-09-12 13:21:36.287  INFO 16840 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-09-12 13:21:36.955  INFO 16840 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-09-12 13:21:37.513  INFO 16840 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-12 13:21:37.545  WARN 16840 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-09-12 13:21:37.765  INFO 16840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-09-12 13:21:37.768  INFO 16840 --- [main] com.example.warszterp.DemoApplication    : Started DemoApplication in 5.464 seconds (JVM running for 7.002)
+2019-09-12 13:21:42.266  INFO 16840 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-12 13:21:42.267  INFO 16840 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-12 13:21:42.275  INFO 16840 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2019-09-12 13:21:42.331  INFO 16840 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-09-12 13:21:43.511  WARN 16840 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [298] milliseconds.
+2019-09-12 13:24:54.685  INFO 7232 --- [main] com.example.warszterp.DemoApplication    : Starting DemoApplication on LUIGIP with PID 7232 (C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP\target\classes started by CP24 in C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP)
+2019-09-12 13:24:54.687  INFO 7232 --- [main] com.example.warszterp.DemoApplication    : No active profile set, falling back to default profiles: default
+2019-09-12 13:24:56.375  INFO 7232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-09-12 13:24:56.548  INFO 7232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 157ms. Found 4 repository interfaces.
+2019-09-12 13:24:56.925  INFO 7232 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b438ecb9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-12 13:24:57.169  INFO 7232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-09-12 13:24:57.208  INFO 7232 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-12 13:24:57.208  INFO 7232 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-12 13:24:57.488  INFO 7232 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-09-12 13:24:57.499  INFO 7232 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-12 13:24:57.499  INFO 7232 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2757 ms
+2019-09-12 13:24:57.633  INFO 7232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-12 13:24:57.927  INFO 7232 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-12 13:24:57.990  INFO 7232 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-12 13:24:58.111  INFO 7232 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.11.Final}
+2019-09-12 13:24:58.113  INFO 7232 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-09-12 13:24:58.267  INFO 7232 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-09-12 13:24:58.386  INFO 7232 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-09-12 13:24:59.014  INFO 7232 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-09-12 13:24:59.526  INFO 7232 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-12 13:24:59.558  WARN 7232 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-09-12 13:24:59.757  INFO 7232 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-09-12 13:24:59.759  INFO 7232 --- [main] com.example.warszterp.DemoApplication    : Started DemoApplication in 5.668 seconds (JVM running for 7.111)
+2019-09-12 13:25:07.186  INFO 7232 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-12 13:25:07.188  INFO 7232 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-12 13:25:07.195  INFO 7232 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-09-12 13:25:07.250  INFO 7232 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-09-12 13:25:08.452  WARN 7232 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [296] milliseconds.
+2019-09-12 13:36:29.116  INFO 3944 --- [main] com.example.warszterp.DemoApplication    : Starting DemoApplication on LUIGIP with PID 3944 (C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP\target\classes started by CP24 in C:\Users\CP24\Desktop\IdeaProjects\Spring\warsztERP)
+2019-09-12 13:36:29.117  INFO 3944 --- [main] com.example.warszterp.DemoApplication    : No active profile set, falling back to default profiles: default
+2019-09-12 13:36:30.703  INFO 3944 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-09-12 13:36:30.841  INFO 3944 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 122ms. Found 4 repository interfaces.
+2019-09-12 13:36:31.184  INFO 3944 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a4d0fc8e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-09-12 13:36:31.474  INFO 3944 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2019-09-12 13:36:31.509  INFO 3944 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-09-12 13:36:31.509  INFO 3944 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.24]
+2019-09-12 13:36:31.859  INFO 3944 --- [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2019-09-12 13:36:31.869  INFO 3944 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-09-12 13:36:31.869  INFO 3944 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2663 ms
+2019-09-12 13:36:32.007  INFO 3944 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2019-09-12 13:36:32.313  INFO 3944 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2019-09-12 13:36:32.374  INFO 3944 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-09-12 13:36:32.472  INFO 3944 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.3.11.Final}
+2019-09-12 13:36:32.475  INFO 3944 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2019-09-12 13:36:32.693  INFO 3944 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-09-12 13:36:32.847  INFO 3944 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2019-09-12 13:36:33.527  INFO 3944 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-09-12 13:36:34.069  INFO 3944 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-09-12 13:36:34.109  WARN 3944 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-09-12 13:36:34.314  INFO 3944 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2019-09-12 13:36:34.316  INFO 3944 --- [main] com.example.warszterp.DemoApplication    : Started DemoApplication in 5.842 seconds (JVM running for 7.952)
+2019-09-12 13:36:39.011  INFO 3944 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-09-12 13:36:39.012  INFO 3944 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-09-12 13:36:39.021  INFO 3944 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2019-09-12 13:36:39.095  INFO 3944 --- [http-nio-8080-exec-1] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-09-12 13:36:40.282  WARN 3944 --- [http-nio-8080-exec-1] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [296] milliseconds.

@@ -45,7 +45,6 @@ public class CarMapper {
         car.setVinNo(data.getVinNo());
         car.setYear(data.getYear());
         car.setId(data.getCarId());
-
         return car;
     }
 }

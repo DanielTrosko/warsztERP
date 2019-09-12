@@ -8,6 +8,15 @@
 
 </head>
 <body>
+<td>
+    <c:url value="/car/acceptance/edit" var="url">
+        <c:param name="id" value="${data.repairId}"/>
+    </c:url>
+
+</td>
+
+<h2>Karta przyjęcia pojazdu na warsztat | <a href="<c:out value='${url}'/>">edytuj dokument</a> </h2>
+
 <table border="2">
     <thead>
     <tr>dane karty przyjęcia pojazdu</tr>

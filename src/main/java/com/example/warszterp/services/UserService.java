@@ -76,4 +76,12 @@ public class UserService {
         User user = userRepository.getOne(dataDto.getUserId());
         return UserMapper.entityToAcceptanceData(dataDto ,user);
     }
+
+    @Transactional
+    public User getDataAndUpdate(AcceptanceDataDto data){
+
+        User user = new User();
+        user = UserMapper.acceptanceDataToEntity(data);
+        return userRepository.save(user);
+    }
 }

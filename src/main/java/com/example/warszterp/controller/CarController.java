@@ -27,7 +27,7 @@ public class CarController {
         this.acceptanceService = acceptanceService;
     }
 
-    @GetMapping("/acceptance")
+    @GetMapping("/acceptance/add")
     public String displayAcceptanceForm(Model model) {
 
         model.addAttribute("data", new AcceptanceDataDto());
@@ -36,17 +36,18 @@ public class CarController {
         return "acceptance_form";
     }
 
-    @PostMapping("/acceptance")
+    @PostMapping("/acceptance/add")
     public String processAcceptanceForm(@Valid @ModelAttribute("data") AcceptanceDataDto dataDto, BindingResult errors, Model model) {
 
-        System.out.println(dataDto.toString());
-        System.out.println(errors.hasErrors());
         if (errors.hasErrors()) {
             model.addAttribute("fuels", Fuel.values());
             model.addAttribute("cars", CarType.values());
             return "acceptance_form";
+        } if (dataDto.getRepairId() == null){
+            acceptanceService.save(dataDto);
+            return "redirect:/car/acceptance/all";
         }
-        acceptanceService.save(dataDto);
+        acceptanceService.update(dataDto);
         return "redirect:/car/acceptance/all";
     }
 
@@ -63,7 +64,16 @@ public class CarController {
         AcceptanceDataDto data = new AcceptanceDataDto();
         data = acceptanceService.getById(id);
         model.addAttribute("data", data);
-        System.out.println(data.toString());
     return "acceptance_single";
+    }
+
+    @GetMapping("/acceptance/edit")
+    public String editAcceptance(Model model, @RequestParam("id") Long id){
+        AcceptanceDataDto data = new AcceptanceDataDto();
+        data = acceptanceService.getById(id);
+        model.addAttribute("data", data);
+        model.addAttribute("fuels", Fuel.values());
+        model.addAttribute("cars", CarType.values());
+        return "acceptance_form";
     }
 }

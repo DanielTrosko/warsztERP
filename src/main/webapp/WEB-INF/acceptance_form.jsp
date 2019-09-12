@@ -8,8 +8,11 @@
 <body>
 <h2>Karta przyjęcia pojazdu do warsztatu:</h2>
 <div>
-    <form:form method="post" action="/car/acceptance" modelAttribute="data">
+    <form:form method="post" action="/car/acceptance/add" modelAttribute="data">
 
+        <form:input path="userId"/>
+        <form:input path="carId" />
+        <form:input path="repairId" />
     <fieldset>
         <legend>dane karty przyjęcia pojazdu</legend>
         <form:label  path="dateOfAdmission">Data przyjęcia pojazdu</form:label>
