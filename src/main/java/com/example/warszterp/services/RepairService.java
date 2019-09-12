@@ -1,6 +1,7 @@
 package com.example.warszterp.services;
 
 import com.example.warszterp.dto.AcceptanceDataDto;
+import com.example.warszterp.dto.RepairDto;
 import com.example.warszterp.mapper.RepairMapper;
 import com.example.warszterp.model.entities.Car;
 import com.example.warszterp.model.entities.Repair;
@@ -12,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
+
 @Service
 @Transactional
 public class RepairService {
@@ -37,4 +40,10 @@ public class RepairService {
         repairRepository.save(repair);
 
      }
+
+     public List<RepairDto> getAll(){
+
+        List<Repair> list = repairRepository.findAll();
+        return RepairMapper.toDtoList(list);
+    }
 }

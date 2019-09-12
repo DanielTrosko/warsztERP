@@ -1,11 +1,14 @@
 package com.example.warszterp.services;
 
 import com.example.warszterp.dto.AcceptanceDataDto;
+import com.example.warszterp.dto.RepairDto;
 import com.example.warszterp.model.entities.Car;
 import com.example.warszterp.model.entities.Repair;
 import com.example.warszterp.model.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AcceptanceService {
@@ -28,5 +31,9 @@ public class AcceptanceService {
          User user = userService.getDataAndSave(dataDto);
          Car car = carService.getDataAndSave(dataDto, user);
          repairService.getDataAndSave(dataDto, user, car);
+    }
+
+    public List<RepairDto> getAll(){
+       return repairService.getAll();
     }
 }
