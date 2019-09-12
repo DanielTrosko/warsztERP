@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 @Service
 @Transactional
 public class CarService {
@@ -30,10 +28,11 @@ public class CarService {
         Car car = new Car();
         car = CarMapper.acceptanceDataToEntity(data);
         car.setOwner(user);
-        Car existnigCar = carRepository.findByPlateNumber(car.getPlateNumber());
-        if (existnigCar == null){
-           car = carRepository.save(car);
+        Car existingCar = carRepository.findByPlateNumber(car.getPlateNumber());
+        System.out.println(existingCar == null);
+        if (existingCar == null){
+            existingCar = carRepository.save(car);
         }
-        return car;
+        return existingCar;
     }
 }

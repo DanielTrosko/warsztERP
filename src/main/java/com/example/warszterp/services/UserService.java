@@ -49,21 +49,26 @@ public class UserService {
                 .setParameter(1, username)
                 .executeUpdate();
     }
-
+    @Transactional
     public User getDataAndSave(AcceptanceDataDto data){
 
         User user = new User();
-        user =UserMapper.acceptanceDataToEntity(data);
+        user = UserMapper.acceptanceDataToEntity(data);
+
         Address clientAddress = user.getAddress();
         Address existingAddress = addressRepository.findByCityAndHouseNumberAndStreet(clientAddress.getCity(), clientAddress.getHouseNumber(), clientAddress.getStreet());
+
+        System.out.println(existingAddress == null);
         if (existingAddress == null){
-           clientAddress = addressRepository.save(clientAddress);
+            existingAddress = addressRepository.save(clientAddress);
         }
+
         User existingUser = userRepository.findByPhoneNumberAndSurnameAndFirstName(user.getPhoneNumber(), user.getSurname(), user.getFirstName());
+        System.out.println(existingUser == null);
         if (existingUser == null){
-            user.setAddress(clientAddress);
-           user = userRepository.save(user);
+            user.setAddress(existingAddress);
+            existingUser = userRepository.save(user);
         }
-        return user;
+        return existingUser;
     }
 }

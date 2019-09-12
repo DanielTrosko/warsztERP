@@ -20,10 +20,8 @@ public class AcceptanceDataDto {
     @NotBlank
     private String acceptanceNumber;
     private Long repairId;
-    @NotBlank
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dateOfAdmission;
-    @NotBlank
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dataOfPickup;
     @NotNull
@@ -49,11 +47,8 @@ public class AcceptanceDataDto {
     private String make;
     @NotBlank
     private String model;
-    @NotBlank
     private Integer year;
-    @NotBlank
     private Fuel fuel;
-    @NotBlank
     private CarType type;
     @NotBlank
     private String plateNumber;
