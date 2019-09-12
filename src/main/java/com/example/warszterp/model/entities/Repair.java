@@ -23,10 +23,10 @@ public class Repair extends BaseEntity {
     private Integer estimatedRepairCost;
     @Column(name = "scope_of_work", nullable = false)
     private String scopeOfWork;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "car_id", nullable = false)
     private Car car;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 }

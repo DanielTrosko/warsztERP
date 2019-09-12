@@ -92,4 +92,24 @@ public class UserMapper {
         return data;
     }
 
+    public static AcceptanceDataDto entityToAcceptanceData(AcceptanceDataDto data, User user) {
+        Address address = user.getAddress();
+        data.setCity(address.getCity());
+        data.setHouseNumber(address.getHouseNumber());
+        data.setAddressId(address.getId());
+        data.setPostCode(address.getPostCode());
+        data.setStreet(address.getStreet());
+
+        data.setFirstName(user.getFirstName());
+        data.setCompany(user.getCompany());
+        data.setEmail(user.getEmail());
+        data.setEnabled(user.isEnabled());
+        data.setUserId(user.getId());
+        data.setPassword(user.getPassword());
+        data.setSurname(user.getSurname());
+        data.setUsername(user.getUsername());
+        data.setPhoneNumber(user.getPhoneNumber());
+        return data;
+    }
+
 }

@@ -20,6 +20,21 @@ public class CarMapper {
         return data;
 
     }
+
+    public static AcceptanceDataDto entityToAcceptanceData(AcceptanceDataDto data, Car car) {
+        data.setFuel(car.getFuel());
+        data.setMake(car.getMake());
+        data.setModel(car.getModel());
+        data.setPlateNumber(car.getPlateNumber());
+        data.setType(car.getType());
+        data.setVinNo(car.getVinNo());
+        data.setYear(car.getYear());
+        data.setCarId(car.getId());
+        data.setUserId(car.getOwner().getId());
+        return data;
+
+    }
+
     public static Car acceptanceDataToEntity(AcceptanceDataDto data) {
         Car car = new Car();
         car.setFuel(data.getFuel());

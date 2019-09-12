@@ -36,4 +36,13 @@ public class AcceptanceService {
     public List<RepairDto> getAll(){
        return repairService.getAll();
     }
+
+    public AcceptanceDataDto getById(Long id){
+        AcceptanceDataDto dataDto = new AcceptanceDataDto();
+        dataDto = repairService.getDatafromRepair(id);
+        dataDto = carService.getDataFromCar(dataDto);
+        dataDto = userService.getDataFromUser(dataDto);
+
+        return dataDto;
+    }
 }

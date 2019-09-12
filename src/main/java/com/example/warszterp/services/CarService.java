@@ -35,4 +35,9 @@ public class CarService {
         }
         return existingCar;
     }
+
+         public AcceptanceDataDto getDataFromCar(AcceptanceDataDto dataDto){
+            Car car = carRepository.getOne(dataDto.getCarId());
+             return CarMapper.entityToAcceptanceData(dataDto ,car);
+         }
 }

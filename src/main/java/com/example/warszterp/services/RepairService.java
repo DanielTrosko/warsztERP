@@ -7,7 +7,11 @@ import com.example.warszterp.model.entities.Car;
 import com.example.warszterp.model.entities.Repair;
 import com.example.warszterp.model.entities.User;
 import com.example.warszterp.model.repositories.RepairRepository;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.FetchProfile;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.cdi.Eager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,22 +32,22 @@ public class RepairService {
         this.repairRepository = repairRepository;
     }
 
-
-
      public void getDataAndSave(AcceptanceDataDto data, User user, Car car){
-
         Repair repair = new Repair();
         repair = RepairMapper.acceptanceDataToEntity(data);
         repair.setCar(car);
         repair.setUser(user);
-
         repairRepository.save(repair);
-
      }
 
      public List<RepairDto> getAll(){
-
         List<Repair> list = repairRepository.findAll();
         return RepairMapper.toDtoList(list);
+    }
+
+    public AcceptanceDataDto getDatafromRepair(Long id){
+        Repair repair =  new Repair();
+        repair = repairRepository.findById(id).get();
+        return RepairMapper.entityToAcceptanceData(repair);
     }
 }

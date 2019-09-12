@@ -60,6 +60,10 @@ public class CarController {
     @GetMapping("/acceptance/one")
     public String displayChosenAcceptance(@RequestParam("id") Long id, Model model){
 
+        AcceptanceDataDto data = new AcceptanceDataDto();
+        data = acceptanceService.getById(id);
+        model.addAttribute("data", data);
+        System.out.println(data.toString());
     return "acceptance_single";
     }
 }

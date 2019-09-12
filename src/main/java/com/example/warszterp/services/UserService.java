@@ -71,4 +71,9 @@ public class UserService {
         }
         return existingUser;
     }
+
+    public AcceptanceDataDto getDataFromUser(AcceptanceDataDto dataDto){
+        User user = userRepository.getOne(dataDto.getUserId());
+        return UserMapper.entityToAcceptanceData(dataDto ,user);
+    }
 }
