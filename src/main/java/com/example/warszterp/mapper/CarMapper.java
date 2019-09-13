@@ -25,6 +25,23 @@ public class CarMapper {
         return carDTO;
     }
 
+    public static Car toEntity(CarDto carDto){
+
+        Car car = new Car();
+
+        car.setFuel(carDto.getFuel());
+        car.setMake(carDto.getMake());
+        car.setModel(carDto.getModel());
+        car.setYear(carDto.getYear());
+        car.setId(carDto.getId());
+        car.setOwner(carDto.getOwner());
+        car.setPlateNumber(carDto.getPlateNumber());
+        car.setType(carDto.getType());
+        car.setVinNo(carDto.getVinNo());
+
+        return car;
+    }
+
 
     public static AcceptanceDataDto entityToAcceptanceData(Car car) {
         AcceptanceDataDto data = new AcceptanceDataDto();

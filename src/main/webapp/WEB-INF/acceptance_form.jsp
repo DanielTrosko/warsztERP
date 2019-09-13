@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--@elvariable id="UserDTO" type="com.example.warszterp.dto.UserDto"--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -61,12 +62,14 @@
         <form:label  path="year">Rok produkcji</form:label>
         <form:input type="text" path="year"/>
             <form:errors path="year"/><br>
-        <form:label  path="fuel">Rodzaj paliwa</form:label>
-        <form:radiobuttons items = "${fuels}" path = "fuel" />
-            <form:errors path="fuel"/><br>
-        <form:label  path="type">Typ nadwozia</form:label>
-        <form:radiobuttons items = "${cars}" path = "type" />
-            <form:errors path="type"/><br>
+        <form:label path="fuel">Typ paliwa</form:label>
+        <form:select path="fuel">
+            <form:options items="${fuels}"/>
+        </form:select><br>
+        <form:label path="type">Typ nadwozia</form:label>
+        <form:select path="type">
+            <form:options items="${types}"/>
+        </form:select><br>
         <form:label  path="plateNumber">Numer tablicy rejestr.</form:label>
         <form:input type="text" path="plateNumber"/>
             <form:errors path="plateNumber"/><br>

@@ -60,4 +60,16 @@ public class CarService {
     public List<CarDto> getAll(){
       return CarMapper.toDtoList(carRepository.findAll());
     }
+
+    public CarDto getById(Long id){
+     return  CarMapper.toDto(carRepository.findById(id).get());
+    }
+
+    public void save(CarDto dto){
+        carRepository.save(CarMapper.toEntity(dto));
+    }
+
+    public void update(CarDto dto){
+        carRepository.save(CarMapper.toEntity(dto));
+    }
 }

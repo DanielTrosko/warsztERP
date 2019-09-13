@@ -9,6 +9,7 @@ import com.example.warszterp.model.repositories.AddressRepository;
 import com.example.warszterp.model.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,27 +26,31 @@ public class UserService {
 
     private UserRepository userRepository;
     private AddressRepository addressRepository;
+    private PasswordEncoder passwordEncoder;
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Autowired
-    public UserService(UserRepository userRepository, AddressRepository addressRepository) {
+    public UserService(UserRepository userRepository, AddressRepository addressRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.addressRepository = addressRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public void createUser(UserDto userDTO) {
         User user = userToEntity(userDTO);
         user.setEnabled(true);
-        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         addressRepository.save(user.getAddress());
         userRepository.save(user);
         insertWithQuery(user.getUsername());
     }
 
     public void updateUser(UserDto userDTO){
-        userRepository.save(userToEntity(userDTO));
+        User user = userToEntity(userDTO);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
     }
 
     public void insertWithQuery(String username) {
@@ -61,13 +66,11 @@ public class UserService {
         Address clientAddress = user.getAddress();
         Address existingAddress = addressRepository.findByCityAndHouseNumberAndStreet(clientAddress.getCity(), clientAddress.getHouseNumber(), clientAddress.getStreet());
 
-        System.out.println(existingAddress == null);
         if (existingAddress == null){
             existingAddress = addressRepository.save(clientAddress);
         }
 
         User existingUser = userRepository.findByPhoneNumberAndSurnameAndFirstName(user.getPhoneNumber(), user.getSurname(), user.getFirstName());
-        System.out.println(existingUser == null);
         if (existingUser == null){
             user.setAddress(existingAddress);
             existingUser = userRepository.save(user);
@@ -91,7 +94,15 @@ public class UserService {
       return UserMapper.toDtoList(userRepository.findAll());
     }
 
+    public List<User> getAllraw(){
+        return userRepository.findAll();
+    }
+
     public void deleteUser(Long id){
         userRepository.deleteById(id);
+    }
+
+    public UserDto getById(Long id){
+       return UserMapper.toDTO(userRepository.findById(id).get());
     }
 }

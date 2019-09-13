@@ -21,10 +21,12 @@ public class UserMapper {
         user.setAddress(address);
         user.setEmail(userDTO.getEmail());
         user.setId(userDTO.getId());
-        user.setFirstName(userDTO.getName());
-        user.setPassword(userDTO.getPassword());
+        user.setFirstName(userDTO.getFirstName());
         user.setSurname(userDTO.getSurname());
         user.setUsername(userDTO.getUsername());
+        user.setPassword(userDTO.getPassword());
+        user.setPhoneNumber(userDTO.getPhoneNumber());
+        user.setCompany(userDTO.getCompany());
 
         return user;
     }
@@ -36,14 +38,17 @@ public class UserMapper {
         userDTO.setHouseNumber(address.getHouseNumber());
         userDTO.setPostCode(address.getPostCode());
         userDTO.setStreet(address.getStreet());
+        userDTO.setAddressId(address.getId());
 
         userDTO.setEmail(user.getEmail());
         userDTO.setId(user.getId());
-        userDTO.setName(user.getEmail());
+        userDTO.setFirstName(user.getFirstName());
         userDTO.setPassword(user.getPassword());
         userDTO.setSurname(user.getSurname());
         userDTO.setUsername(user.getUsername());
         userDTO.setEnabled(true);
+        userDTO.setCompany(user.getCompany());
+        userDTO.setPhoneNumber(user.getPhoneNumber());
 
         return userDTO;
     }

@@ -30,7 +30,7 @@ public class UserController {
     @PostMapping(value = "/createuser")
     public String createUser(@Valid @ModelAttribute("UserDTO") UserDto userDTO, Model model) {
         if (userDTO.getId() == null) {
-            this.userService.createUser(userDTO);
+            userService.createUser(userDTO);
             log.info("Create user:" + userDTO.getUsername());
         } else {
             this.userService.updateUser(userDTO);
