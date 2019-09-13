@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 
 @Getter @Setter
 @ToString
-public class UserDto {
+public class UserDTO {
 
     private Long id;
     @NotBlank(message = "pole jest wymagane")

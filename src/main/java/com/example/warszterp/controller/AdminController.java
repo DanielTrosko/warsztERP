@@ -1,7 +1,7 @@
 package com.example.warszterp.controller;
 
 import com.example.warszterp.dto.CarDto;
-import com.example.warszterp.dto.UserDto;
+import com.example.warszterp.dto.UserDTO;
 import com.example.warszterp.model.entities.CarType;
 import com.example.warszterp.model.entities.Fuel;
 import com.example.warszterp.services.CarService;
@@ -37,7 +37,7 @@ public class AdminController {
 
     @GetMapping("/user")
     public String displayUsers(Model model) {
-        List<UserDto> list = userService.getAll();
+        List<UserDTO> list = userService.getAll();
         list.stream().forEach(userDto -> System.out.println(userDto.toString()));
         model.addAttribute("list", list);
         return "users_list";
@@ -45,13 +45,13 @@ public class AdminController {
 
     @GetMapping("/user/add")
     public String displayAddUserForm(Model model) {
-        UserDto user = new UserDto();
+        UserDTO user = new UserDTO();
         model.addAttribute("user", user);
         return "add_user_form";
     }
 
     @PostMapping("/user/add")
-    public String processAddUserForm(@Valid @ModelAttribute("user") UserDto userDTO, BindingResult result) {
+    public String processAddUserForm(@Valid @ModelAttribute("user") UserDTO userDTO, BindingResult result) {
         if (result.hasErrors()) {
             return "add_user_form";
         }

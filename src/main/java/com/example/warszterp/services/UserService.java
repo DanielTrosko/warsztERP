@@ -1,14 +1,13 @@
 package com.example.warszterp.services;
 
 import com.example.warszterp.dto.AcceptanceDataDto;
-import com.example.warszterp.dto.UserDto;
+import com.example.warszterp.dto.UserDTO;
 import com.example.warszterp.mapper.UserMapper;
 import com.example.warszterp.model.entities.Address;
 import com.example.warszterp.model.entities.User;
 import com.example.warszterp.model.repositories.AddressRepository;
 import com.example.warszterp.model.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +37,7 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void createUser(UserDto userDTO) {
+    public void createUser(UserDTO userDTO) {
         User user = userToEntity(userDTO);
         user.setEnabled(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
@@ -47,7 +46,7 @@ public class UserService {
         insertWithQuery(user.getUsername());
     }
 
-    public void updateUser(UserDto userDTO){
+    public void updateUser(UserDTO userDTO){
         User user = userToEntity(userDTO);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -90,7 +89,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public List<UserDto> getAll(){
+    public List<UserDTO> getAll(){
       return UserMapper.toDtoList(userRepository.findAll());
     }
 
@@ -102,7 +101,7 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public UserDto getById(Long id){
+    public UserDTO getById(Long id){
        return UserMapper.toDTO(userRepository.findById(id).get());
     }
 }

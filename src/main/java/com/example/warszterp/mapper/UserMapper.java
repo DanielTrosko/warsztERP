@@ -1,7 +1,7 @@
 package com.example.warszterp.mapper;
 
 import com.example.warszterp.dto.AcceptanceDataDto;
-import com.example.warszterp.dto.UserDto;
+import com.example.warszterp.dto.UserDTO;
 import com.example.warszterp.model.entities.Address;
 import com.example.warszterp.model.entities.User;
 
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class UserMapper {
-    public static User userToEntity(UserDto userDTO) {
+    public static User userToEntity(UserDTO userDTO) {
         Address address = new Address();
         address.setId(userDTO.getAddressId());
         address.setCity(userDTO.getCity());
@@ -31,8 +31,8 @@ public class UserMapper {
         return user;
     }
 
-    public static UserDto toDTO(User user) {
-        UserDto userDTO = new UserDto();
+    public static UserDTO toDTO(User user) {
+        UserDTO userDTO = new UserDTO();
         Address address = user.getAddress();
         userDTO.setCity(address.getCity());
         userDTO.setHouseNumber(address.getHouseNumber());
@@ -46,6 +46,7 @@ public class UserMapper {
         userDTO.setPassword(user.getPassword());
         userDTO.setSurname(user.getSurname());
         userDTO.setUsername(user.getUsername());
+        userDTO.setPhoneNumber(user.getPhoneNumber());
         userDTO.setEnabled(true);
         userDTO.setCompany(user.getCompany());
         userDTO.setPhoneNumber(user.getPhoneNumber());
@@ -121,7 +122,7 @@ public class UserMapper {
     }
 
 
-    public static List<UserDto> toDtoList(List<User> list){
+    public static List<UserDTO> toDtoList(List<User> list){
     return list.stream().map(user -> toDTO(user)).collect(Collectors.toList());
     }
 }

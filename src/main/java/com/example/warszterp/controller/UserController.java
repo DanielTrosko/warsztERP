@@ -1,6 +1,6 @@
 package com.example.warszterp.controller;
 
-import com.example.warszterp.dto.UserDto;
+import com.example.warszterp.dto.UserDTO;
 import com.example.warszterp.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,12 +23,12 @@ public class UserController {
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String addUser(Model model) {
-        model.addAttribute("UserDTO", new UserDto());
+        model.addAttribute("UserDTO", new UserDTO());
         return "/views/add_user";
     }
 
     @PostMapping(value = "/createuser")
-    public String createUser(@Valid @ModelAttribute("UserDTO") UserDto userDTO, Model model) {
+    public String createUser(@Valid @ModelAttribute("UserDTO") UserDTO userDTO, Model model) {
         if (userDTO.getId() == null) {
             userService.createUser(userDTO);
             log.info("Create user:" + userDTO.getUsername());
@@ -37,7 +37,7 @@ public class UserController {
             log.info("Update user:" + userDTO.getUsername());
         }
         model.addAttribute("msg", "wiadomosc");
-        return "/";
+        return "/views/index";
     }
 
     @RequestMapping(value = "/login")
