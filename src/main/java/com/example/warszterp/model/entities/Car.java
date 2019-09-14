@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -26,8 +27,9 @@ public class Car extends BaseEntity {
     private String plateNumber;
     @Column(name = "vin_no")
     private String vinNo;
-
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User owner;
+    @OneToMany(mappedBy = "car", cascade = CascadeType.ALL)
+    private List<Repair> repairs;
 }

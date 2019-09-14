@@ -17,52 +17,52 @@ import java.time.LocalDate;
 @ToString
 public class AcceptanceDataDto {
 
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String acceptanceNumber;
     private Long repairId;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dateOfAdmission;
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dataOfPickup;
-    @NotNull
+    @NotNull(message = "pole jest wymagane")
     private Integer estimatedRepairCost;
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String scopeOfWork;
 
     private Long userId;
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String firstName;
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String surname;
     private String company;
     private boolean enabled;
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String phoneNumber;
     private String username;
     private String password;
     private String email;
 
     private Long carId;
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String make;
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String model;
     private Integer year;
     private Fuel fuel;
     private CarType type;
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String plateNumber;
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String vinNo;
 
     private Long addressId;
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String street;
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String houseNumber;
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String city;
-    @NotBlank
+    @NotBlank(message = "pole jest wymagane")
     private String postCode;
 
 }

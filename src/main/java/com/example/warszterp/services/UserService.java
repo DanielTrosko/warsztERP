@@ -8,12 +8,14 @@ import com.example.warszterp.model.entities.User;
 import com.example.warszterp.model.repositories.AddressRepository;
 import com.example.warszterp.model.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import java.util.List;
 
 import static com.example.warszterp.mapper.UserMapper.userToEntity;
 
@@ -23,27 +25,31 @@ public class UserService {
 
     private UserRepository userRepository;
     private AddressRepository addressRepository;
+    private PasswordEncoder passwordEncoder;
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Autowired
-    public UserService(UserRepository userRepository, AddressRepository addressRepository) {
+    public UserService(UserRepository userRepository, AddressRepository addressRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.addressRepository = addressRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public void createUser(UserDTO userDTO) {
         User user = userToEntity(userDTO);
         user.setEnabled(true);
-        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         addressRepository.save(user.getAddress());
         userRepository.save(user);
         insertWithQuery(user.getUsername());
     }
 
     public void updateUser(UserDTO userDTO){
-        userRepository.save(userToEntity(userDTO));
+        User user = userToEntity(userDTO);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(user);
     }
 
     public void insertWithQuery(String username) {
@@ -51,7 +57,6 @@ public class UserService {
                 .setParameter(1, username)
                 .executeUpdate();
     }
-    @Transactional
     public User getDataAndSave(AcceptanceDataDto data){
 
         User user = new User();
@@ -60,13 +65,11 @@ public class UserService {
         Address clientAddress = user.getAddress();
         Address existingAddress = addressRepository.findByCityAndHouseNumberAndStreet(clientAddress.getCity(), clientAddress.getHouseNumber(), clientAddress.getStreet());
 
-        System.out.println(existingAddress == null);
         if (existingAddress == null){
             existingAddress = addressRepository.save(clientAddress);
         }
 
         User existingUser = userRepository.findByPhoneNumberAndSurnameAndFirstName(user.getPhoneNumber(), user.getSurname(), user.getFirstName());
-        System.out.println(existingUser == null);
         if (existingUser == null){
             user.setAddress(existingAddress);
             existingUser = userRepository.save(user);
@@ -79,11 +82,26 @@ public class UserService {
         return UserMapper.entityToAcceptanceData(dataDto ,user);
     }
 
-    @Transactional
     public User getDataAndUpdate(AcceptanceDataDto data){
 
         User user = new User();
         user = UserMapper.acceptanceDataToEntity(data);
         return userRepository.save(user);
+    }
+
+    public List<UserDTO> getAll(){
+      return UserMapper.toDtoList(userRepository.findAll());
+    }
+
+    public List<User> getAllraw(){
+        return userRepository.findAll();
+    }
+
+    public void deleteUser(Long id){
+        userRepository.deleteById(id);
+    }
+
+    public UserDTO getById(Long id){
+       return UserMapper.toDTO(userRepository.findById(id).get());
     }
 }
