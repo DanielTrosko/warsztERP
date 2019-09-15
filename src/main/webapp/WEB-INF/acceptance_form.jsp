@@ -51,24 +51,31 @@
                             </div>
 
                             <form:errors path="firstName"/><br>
+
                             <form:label  path="surname">Nazwisko</form:label>
                             <form:input type="text" path="surname"/>
                             <form:errors path="surname"/><br>
+
                             <form:label  path="company">Firma</form:label>
                             <form:input type="text" path="company"/>
                             <form:errors path="company"/><br>
+
                             <form:label  path="phoneNumber">Numer telefonu</form:label>
                             <form:input type="text" path="phoneNumber"/>
                             <form:errors path="phoneNumber"/><br>
+
                             <form:label  path="street">Ulica</form:label>
                             <form:input type="text" path="street"/>
                             <form:errors path="street"/><br>
+
                             <form:label  path="houseNumber">Numer mieszkania</form:label>
                             <form:input type="text" path="houseNumber"/>
                             <form:errors path="houseNumber"/><br>
+
                             <form:label  path="postCode">Kod pocztowy</form:label>
                             <form:input type="text" path="postCode"/>
                             <form:errors path="postCode"/><br>
+
                             <form:label  path="city">Miasto</form:label>
                             <form:input type="text" path="city"/>
                             <form:errors path="city"/>
@@ -85,23 +92,30 @@
                        <form:label  path="make">Marka</form:label>
                        <form:input type="text" path="make"/>
                        <form:errors path="make"/><br>
+
                        <form:label  path="model">Model</form:label>
                        <form:input type="text" path="model"/>
                        <form:errors path="model"/><br>
+
                        <form:label  path="year">Rok produkcji</form:label>
                        <form:input type="text" path="year"/>
                        <form:errors path="year"/><br>
+
                        <form:label path="fuel">Typ paliwa</form:label>
                        <form:select path="fuel">
                            <form:options items="${fuels}"/>
                        </form:select><br>
+
+
                        <form:label path="type">Typ nadwozia</form:label>
                        <form:select path="type">
                            <form:options items="${types}"/>
+
                        </form:select><br>
                        <form:label  path="plateNumber">Numer tablicy rejestr.</form:label>
                        <form:input type="text" path="plateNumber"/>
                        <form:errors path="plateNumber"/><br>
+
                        <form:label  path="vinNo">Numer VIN</form:label>
                        <form:input type="text" path="vinNo"/>
                        <form:errors path="vinNo"/>

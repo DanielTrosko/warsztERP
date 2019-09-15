@@ -24,7 +24,7 @@ public class UserController {
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String addUser(Model model) {
         model.addAttribute("UserDTO", new UserDTO());
-        return "/views/add_user";
+        return "add_user";
     }
 
     @PostMapping(value = "/createuser")
@@ -37,26 +37,26 @@ public class UserController {
             log.info("Update user:" + userDTO.getUsername());
         }
         model.addAttribute("msg", "wiadomosc");
-        return "/views/index";
+        return "index";
     }
 
     @RequestMapping(value = "/login")
     public String login() {
-        return "/views/login";
+        return "login";
     }
 
     @RequestMapping(value = "successlogin")
     public String successLogin() {
-        return "/views/successlogin";
+        return "successlogin";
     }
 
     @RequestMapping(value = "/failurelogin")
     public String failureLogin() {
-        return "/views/failurelogin";
+        return "failurelogin";
     }
 
     @RequestMapping(value = "/")
     public String index() {
-        return "/views/index";
+        return "index";
     }
 }
