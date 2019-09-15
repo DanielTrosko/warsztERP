@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p th:each="cos : ${cars}" th:text="${cos}"/>
+
+<form action="#" th:action="/car/acceptance/add" method="post" th:object="data">
+    <table>
+        <tr>
+            <td><!--/*@thymesVar id="dateOfAdmission" type="com.example.warszterp.dto.AcceptanceDataDto"*/-->
+            <label>Data dodania</label></td>
+            <td><input th:type="" th:field="${dateOfAdmission}"> </td>
+        </tr>
+    </table>
+
+</form>
+</body>
+</html>

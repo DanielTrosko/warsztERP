@@ -4,7 +4,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    
 </head>
 <body>
 <form:form action="/admin/car/add" method="post" modelAttribute="car">

@@ -41,7 +41,7 @@ public class CarController {
         if (errors.hasErrors()) {
             model.addAttribute("fuels", Fuel.values());
             model.addAttribute("cars", CarType.values());
-            return "acceptance_form";
+            return "thymeleaf/acceptance_form";
         } if (dataDto.getRepairId() == null){
             acceptanceService.save(dataDto);
             return "redirect:/car/acceptance/all";
