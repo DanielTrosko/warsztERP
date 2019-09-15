@@ -4,7 +4,6 @@ import com.example.warszterp.dto.AcceptanceDataDto;
 import com.example.warszterp.dto.RepairDto;
 import com.example.warszterp.model.entities.CarType;
 import com.example.warszterp.model.entities.Fuel;
-import com.example.warszterp.model.entities.Repair;
 import com.example.warszterp.services.AcceptanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -5,6 +5,9 @@ import com.example.warszterp.dto.UserDTO;
 import com.example.warszterp.model.entities.Address;
 import com.example.warszterp.model.entities.User;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class UserMapper {
     public static User userToEntity(UserDTO userDTO) {
         Address address = new Address();
@@ -18,11 +21,12 @@ public class UserMapper {
         user.setAddress(address);
         user.setEmail(userDTO.getEmail());
         user.setId(userDTO.getId());
-        user.setFirstName(userDTO.getName());
-        user.setPhoneNumber(userDTO.getPhoneNumber());
-        user.setPassword(userDTO.getPassword());
+        user.setFirstName(userDTO.getFirstName());
         user.setSurname(userDTO.getSurname());
         user.setUsername(userDTO.getUsername());
+        user.setPassword(userDTO.getPassword());
+        user.setPhoneNumber(userDTO.getPhoneNumber());
+        user.setCompany(userDTO.getCompany());
 
         return user;
     }
@@ -34,15 +38,18 @@ public class UserMapper {
         userDTO.setHouseNumber(address.getHouseNumber());
         userDTO.setPostCode(address.getPostCode());
         userDTO.setStreet(address.getStreet());
+        userDTO.setAddressId(address.getId());
 
         userDTO.setEmail(user.getEmail());
         userDTO.setId(user.getId());
-        userDTO.setName(user.getEmail());
+        userDTO.setFirstName(user.getFirstName());
         userDTO.setPassword(user.getPassword());
         userDTO.setSurname(user.getSurname());
         userDTO.setUsername(user.getUsername());
         userDTO.setPhoneNumber(user.getPhoneNumber());
         userDTO.setEnabled(true);
+        userDTO.setCompany(user.getCompany());
+        userDTO.setPhoneNumber(user.getPhoneNumber());
 
         return userDTO;
     }
@@ -114,4 +121,8 @@ public class UserMapper {
         return data;
     }
 
+
+    public static List<UserDTO> toDtoList(List<User> list){
+    return list.stream().map(user -> toDTO(user)).collect(Collectors.toList());
+    }
 }
