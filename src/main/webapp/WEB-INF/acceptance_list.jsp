@@ -23,6 +23,7 @@
         <td>tabl.rejestr. pojazdu</td>
         <td>właściciel</td>
         <td>szczegóły</td>
+        <td>Photo</td>
 
 
     </tr>
@@ -42,6 +43,12 @@
             <c:param name="id" value="${elem.id}"/>
         </c:url>
         <a href="<c:out value='${url}'/>">dokument</a>
+    </td>
+    <td>
+        <c:url value="/car/photo/add" var="url">
+            <c:param name="id" value="${elem.id}"/>
+        </c:url>
+        <a href="<c:out value='${url}'/>">add photo</a>
     </td>
 </tr>
 </c:forEach>
