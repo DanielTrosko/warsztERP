@@ -30,7 +30,7 @@ public class CarPhotoController {
     @GetMapping(value = "/add{lId}")
     public String preparePhotos(Long id, Model model) {
         model.addAttribute("id", id.toString());
-        return "/views/cos";
+        return "/views/add_photo";
     }
 
     @PostMapping("/add/{id}")
@@ -47,10 +47,10 @@ public class CarPhotoController {
             carPhotoService.addRepairPhoto(id, carPhotoDTO);
             model.addAttribute("add", "Photo was add");
             model.addAttribute("files", carPhotoService.getRepairPhotos(id));
-            return "/views/cos";
+            return "/views/add_photo";
         }
         model.addAttribute("photo", "Only image");
-        return "/views/cos";
+        return "/views/add_photo";
     }
 
     @GetMapping(value = "/show/{photoId}")
