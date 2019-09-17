@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.UserDTO"*/-->
+    <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.RepairDto"*/-->
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-TODO
+​
+​
+​
+<a th:href="@{/admin/user}">Użytkownicy</a>
+<a th:href="@{/admin/car}">Pojazdy</a>
+<div style="margin-top: 40px;">
+    <table border="2">
+        <thead>
+        <tr>Pojazdy</tr>
+        <tr>
+            <th>#</th>
+            <th>Numer rej.</th>
+            <th>Marka</th>
+            <th>Model</th>
+            <th>Właściciel</th>
+            <th>Status</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <th:block th:each="elem:${list}">
+            <tr>
+                <td th:text="${list.indexOf(elem)+1}"></td>
+                <td th:text="${elem.plateNumber}"></td>
+                <td th:text="${elem.make}"></td>
+                <td th:text="${elem.model}">${elem.model}</td>
+                <td th:text="${elem.owner.surname} ${elem.owner.firstName}"></td>
+                <td> - </td>
+                <td>
+                    <a th:href="@{/admin/car/delete(id=${elem.id})}">usuń | </a>
+                    <a th:href="@{/admin/car/edit(id=${elem.id})}">edytuj</a>
+                    ​
+                </td>
+            </tr>
+            </th:block>
+
+        </tbody>
+    </table>
+</div>
+<a th:href="@{/admin/car/add}">Dodaj pojazd</a>
+​
 </body>
 </html>
