@@ -6,6 +6,7 @@
     <title>Add car</title>
 </head>
 <body>
+<p><a th:href="@{/main}">Powrót do panelu głównego</a></p>
 <form action="#" th:action="@{/admin/car/add}" method="post" th:object="${car}">
     <input th:field="*{id}" hidden="true">
     <label for="owner">Właściciel</label>
@@ -13,34 +14,34 @@
         <option th:each="owner:${users}"
                 th:value="${owner.id}"
                 th:text="${owner.surname}"></option>
-    </select>
+    </select><br>
 
     <label for="plate-number">Numer rej.</label>
     <input id="plate-number" type="text" th:field="*{plateNumber}">
-    <p th:if="${#fields.hasErrors('plateNumber')}" th:errors="*{plateNumber}"></p>
+    <p th:if="${#fields.hasErrors('plateNumber')}" th:errors="*{plateNumber}"></p><br>
 
     <label for="vin-no">Numer VIN</label>
     <input id="vin-no" type="text" th:field="*{vinNo}">
-    <p th:if="${#fields.hasErrors('vinNo')}" th:errors="*{vinNo}"></p>
+    <p th:if="${#fields.hasErrors('vinNo')}" th:errors="*{vinNo}"></p><br>
 
     <label for="make">Producent</label>
     <input id="make" type="text" th:field="*{make}">
-    <p th:if="${#fields.hasErrors('make')}" th:errors="*{make}"></p>
+    <p th:if="${#fields.hasErrors('make')}" th:errors="*{make}"></p><br>
 
     <label for="model">Model</label>
     <input id="model" type="text" th:field="*{model}">
-    <p th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></p>
+    <p th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></p><br>
 
     <label for="year">Rok produkcji</label>
     <input id="year" type="text" th:field="*{year}">
-    <p th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></p>
+    <p th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></p><br>
 
     <label for="type">Typ nadwozia</label>
     <select name="type" id="type">
         <option th:each="type : ${types}"
                 th:value="${type}"
                 th:text="${type}"></option>
-    </select>
+    </select><br>
 
     <label for="fuel">Typ paliwa</label>
     <select id="fuel" name="fuel">
@@ -48,7 +49,7 @@
         th:value="${fuel}"
         th:text="${fuel}">
         </option>
-    </select>
+    </select><br>
     <button value="submit" type="submit">Zapisz</button>
 </form>
 </body>

@@ -23,6 +23,7 @@
 
 <section class="main">
     <div class="container">
+        <p><a th:href="@{/main}">Powrót do panelu głównego</a></p>
         <div class="row">
             <form action="#" th:action="@{/car/acceptance/add}" method="post" th:object="${data}">
                 <input th:field="*{userId}" hidden="true">

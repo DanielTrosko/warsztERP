@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .usersByUsernameQuery("SELECT username, password, enabled from user WHERE username=?")
                 .authoritiesByUsernameQuery("SELECT username, authority FROM authorities WHERE username=?")
-                .passwordEncoder(new BCryptPasswordEncoder());
+                .passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -42,42 +42,47 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user**").hasAnyRole("USER", "EMPLOYE", "ADMIN")
                 .antMatchers("/car**").permitAll()
                 .antMatchers("/admin**").permitAll()
-                .and()
-                .authorizeRequests().antMatchers("/employe**").hasAnyRole("EMPLOYE", "ADMIN")
-                .and()
-                .authorizeRequests().antMatchers("/admin**").hasAnyRole("ADMIN")
+                .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/signin")
-                .usernameParameter("username")
-                .passwordParameter("password")
-                .successHandler(((httpServletRequest, httpServletResponse, authentication) -> {
-                    String errMsg = "Correct Login";
-                    httpServletRequest.setAttribute("msg", errMsg);
-                    httpServletResponse.sendRedirect("/successlogin");
-                }))
-                .failureHandler((httpServletRequest, httpServletResponse, e) -> {
-                    String errMsg;
-                    if (e.getClass().isAssignableFrom(BadCredentialsException.class)) {
-                        errMsg = "Invalid Username or Password";
-                    } else {
-                        errMsg = "Unknown error" + e.getMessage();
-                    }
-                    httpServletRequest.setAttribute("msg", errMsg);
-                    httpServletResponse.sendRedirect("/failurelogin");
-                })
-                .permitAll()
                 .and()
-                .logout()
-                .logoutUrl("/signout")
-                .logoutSuccessHandler((httpServletRequest, httpServletResponse, authentication) -> {
-                    httpServletRequest.getSession().setAttribute("msg", "You are logged out successfully");
-                    httpServletResponse.sendRedirect("/login");
-                })
-                .permitAll()
-                .and()
-                .csrf().disable();
+                .httpBasic();
+//                .and()
+//                .authorizeRequests().antMatchers("/employe**").hasAnyRole("EMPLOYE", "ADMIN")
+//                .and()
+//                .authorizeRequests().antMatchers("/admin**").hasAnyRole("ADMIN")
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .loginProcessingUrl("/signin")
+//                .usernameParameter("username")
+//                .passwordParameter("password")
+//                .successHandler(((httpServletRequest, httpServletResponse, authentication) -> {
+//                    String errMsg = "Correct Login";
+//                    httpServletRequest.setAttribute("msg", errMsg);
+//                    httpServletResponse.sendRedirect("/successlogin");
+//                }))
+//                .failureHandler((httpServletRequest, httpServletResponse, e) -> {
+//                    String errMsg;
+//                    if (e.getClass().isAssignableFrom(BadCredentialsException.class)) {
+//                        errMsg = "Invalid Username or Password";
+//                    } else {
+//                        errMsg = "Unknown error" + e.getMessage();
+//                    }
+//                    httpServletRequest.setAttribute("msg", errMsg);
+//                    httpServletResponse.sendRedirect("/failurelogin");
+//                })
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .logoutUrl("/signout")
+//                .logoutSuccessHandler((httpServletRequest, httpServletResponse, authentication) -> {
+//                    httpServletRequest.getSession().setAttribute("msg", "You are logged out successfully");
+//                    httpServletResponse.sendRedirect("/login");
+//                })
+//                .permitAll()
+//                .and()
+//                .csrf().disable();
 
 
     }
