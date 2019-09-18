@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.UserDTO"*/-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a th:href="@{/admin/user}">Użytkownicy</a>
+<a th:href="@{/admin/car}">Pojazdy</a>
+
+<div style="margin-top: 40px;">
+    <table border="2">
+        <thead>
+        <tr>Lista użytkowników:</tr>
+        <tr>
+            <th>#</th>
+            <th>Nazwa</th>
+            <th>Adres</th>
+            <th>login</th>
+            <th>email</th>
+            <th>Telefon</th>
+            <th>Rola</th>
+            <th>Akcje</th>
+        </tr>
+        </thead>
+        <tbody>
+
+            <th:block th:each="elem:${list}">th:block>
+            <tr>
+                <td th:text="${list.indexOf(elem)+1}"></td>
+                <td th:text="${elem.firstName} ${elem.surname} ${elem.company}"></td>
+                <td th:text="${elem.street} ${elem.houseNumber} ${elem.postCode} ${elem.city}"></td>
+                <td th:text="${elem.username}"></td>
+                <td th:text="${elem.email}"></td>
+                <td th:text="${elem.phoneNumber}"></td>
+                <td> - </td>
+                <td>
+                    <a th:href="@{/admin/user/delete(id=${elem.id})}">usuń | </a>
+                    <a th:href="@{/admin/user/edit(id=${elem.id})}">edytuj</a>
+
+                </td>
+            </tr>
+            </th:block>
+
+        </tbody>
+    </table>
+    <a th:href="@{/admin/user/add}">Dodaj użytkownika</a>
+</div>
+</body>
+</html>

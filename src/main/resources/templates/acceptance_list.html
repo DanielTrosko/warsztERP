@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.UserDTO"*/-->
+    <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.RepairDto"*/-->
+    <meta charset="UTF-8">
+    <title>Acceptance list</title>
+</head>
+<body>
+
+<table border="2">
+    <thead></thead>
+    <tr>Lista kart przyjęć pojazdów:</tr>
+    <tr>
+        <td>#</td>
+        <td>numer</td>
+        <td>data przyjecia</td>
+        <td>data oddania</td>
+        <td>koszt naprawy</td>
+        <td>uwagi klienta </td>
+        <td>tabl.rejestr. pojazdu</td>
+        <td>właściciel</td>
+        <td>szczegóły</td>
+
+
+    </tr>
+    <tbody></tbody>
+    <th:block th:each="elem:${list}">
+        <tr>
+            <td th:text="${list.indexOf(elem)+1}"></td>
+            <td th:text="${elem.acceptanceNumber}"></td>
+            <td th:text="${elem.dateOfAdmission}"></td>
+            <td th:text="${elem.dataOfPickup}"></td>
+            <td th:text="${elem.estimatedRepairCost}"></td>
+            <td th:text="${elem.scopeOfWork}"></td>
+            <td th:text="${elem.car.plateNumber}"></td>
+            <td th:text="${elem.user.firstName}"></td>
+            <td th:text="${elem.user.surname}"/>
+            <td>
+                <a th:href="@{/car/acceptance/one(id=${elem.id})}">link</a>
+
+            </td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

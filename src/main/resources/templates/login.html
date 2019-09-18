@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.UserDTO"*/-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/signin/}" method="post">
+    <table>
+        <tr>
+            <label for="user-name">Username</label>
+            <input type="text" id="user-name" class="form-control" name="username">
+        </tr>
+        <tr>
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" name="password">
+        </tr>
+        <br>
+        <tr>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </tr>
+    </table>
+</form>
+<br/>
+<!--<c:if test="${not empty msg}">
+    <span style="color:green"><c:out value="${msg}"/></span>
+    <c:remove var="msg" scope="session" />
+</c:if> -->
+</body>
+</html>

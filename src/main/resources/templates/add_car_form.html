@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.UserDTO"*/-->
+    <meta charset="UTF-8">
+    <title>Add car</title>
+</head>
+<body>
+<form action="#" th:action="@{/admin/car/add}" method="post" th:object="${car}">
+    <p th:field="*{id}" hidden></p>
+    <label for="owner">Właściciel</label>
+    <select id="owner" name="owner">
+        <option th:each="owner:${users}"
+                th:value="${owner}"
+                th:text="${owner.surname}"></option>
+    </select>
+
+    <label for="plate-number">Numer rej.</label>
+    <input id="plate-number" type="text" th:field="*{plateNumber}">
+    <p th:if="${#fields.hasErrors('plateNumber')}" th:errors="*{plateNumber}"></p>
+
+    <label for="vin-no">Numer VIN</label>
+    <input id="vin-no" type="text" th:field="*{vinNo}">
+    <p th:if="${#fields.hasErrors('vinNo')}" th:errors="*{vinNo}"></p>
+
+    <label for="make">Producent</label>
+    <input id="make" type="text" th:field="*{make}">
+    <p th:if="${#fields.hasErrors('make')}" th:errors="*{make}"></p>
+
+    <label for="model">Model</label>
+    <input id="model" type="text" th:field="*{model}">
+    <p th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></p>
+
+    <label for="year">Rok produkcji</label>
+    <input id="year" type="text" th:field="*{year}">
+    <p th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></p>
+
+    <label for="type">Typ nadwozia</label>
+    <select name="type" id="type">
+        <option th:each="${types}"
+                th:value="${types}"
+                th:text="${types}"></option>
+    </select>
+
+    <label for="fuel">Typ paliwa</label>
+    <input id="fuel" type="text" th:field="*{fuel}">
+    <p th:if="${#fields.hasErrors('fuel')}" th:errors="*{fuel}"></p>
+
+    <button value="submit" type="submit">Zapisz</button>
+</form>
+</body>
+</html>

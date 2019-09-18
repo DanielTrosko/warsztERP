@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.UserDTO"*/-->
+    <meta charset="UTF-8">
+    <title>Dodawanie użytkowanika</title>
+</head>
+<body>
+<a th:href="@{/admin/user}">Użytkownicy</a>
+<a th:href="@{/admin/car}">Pojazdy</a><br>
+
+<div>
+    <h2>Forumlarz użytkownika</h2>
+    <form th:object="${user}" method="post" th:action="@{/admin/user/add}">
+        <p th:field="*{id}" hidden/>
+        <p th:field="*{addressId}" hidden/>
+        <label for="user-name">Nazwa użytkownika</label>
+        <input id="user-name" type="text" th:field="*{username}">
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+
+        <label for="email">Email</label>
+        <input id="email" type="text" th:field="*{email}">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+
+        <label for="password">Hasło</label>
+        <input id="password" type="password" th:field="*{password}">
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+
+        <label for="re-password">Powtórz hasło</label>
+        <input id="re-password" type="password" th:field="*{rePassword}">
+        <p th:if="${#fields.hasErrors('rePassword')}" th:errors="*{rePassword}"></p>
+
+        <label for="company">Firma</label>
+        <input id="company" type="password" th:field="*{rePassword}">
+        <p th:if="${#fields.hasErrors('rePassword')}" th:errors="*{rePassword}"></p>
+
+        <label for="first-name">Imię</label>
+        <input id="first-name" type="text" th:field="*{firstName}">
+        <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+
+        <label for="surname">Nazwisko</label>
+        <input id="surname" type="text" th:field="*{surname}">
+        <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>
+
+        <label for="phone-number">Email</label>
+        <input id="phone-number" type="text" th:field="*{phoneNumber}">
+        <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p>
+
+        <label for="street">Ulica</label>
+        <input id="street" type="text" th:field="*{street}">
+        <p th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></p>
+
+        <label for="house-number">Numer</label>
+        <input id="house-number" type="text" th:field="*{houseNumber}">
+        <p th:if="${#fields.hasErrors('houseNumber')}" th:errors="*{houseNumber}"></p>
+
+        <label for="post-code">Kod pocztowy</label>
+        <input id="post-code" type="text" th:field="*{postCode}">
+        <p th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}"></p>
+
+        <label for="city">Miasto</label>
+        <input id="city" type="text" th:field="*{city}">
+        <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></p>
+
+        <button value="submit" type="submit">Zapisz</button>
+
+
+    </form>
+</div>
+</body>
+</html>

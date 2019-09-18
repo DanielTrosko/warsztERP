@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Controller
 @RequestMapping("/car")
@@ -37,8 +39,8 @@ public class CarController {
     public String displayAcceptanceForm(Model model) {
 
         model.addAttribute("data", new AcceptanceDataDto());
-        model.addAttribute("fuels", Fuel.values());
-        model.addAttribute("cars", CarType.values());
+        model.addAttribute("fuels", Stream.of(Fuel.values()).map(Fuel::name).collect(Collectors.toSet()));
+        model.addAttribute("cars", Stream.of(CarType.values()).map(CarType::name).collect(Collectors.toSet()));
         return "acceptance_form";
     }
 
@@ -46,8 +48,8 @@ public class CarController {
     public String processAcceptanceForm(@Valid @ModelAttribute("data") AcceptanceDataDto dataDto, BindingResult errors, Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("fuels", Fuel.values());
-            model.addAttribute("cars", CarType.values());
+            model.addAttribute("fuels", Stream.of(Fuel.values()).map(Fuel::name).collect(Collectors.toSet()));
+            model.addAttribute("cars", Stream.of(CarType.values()).map(CarType::name).collect(Collectors.toSet()));
             return "acceptance_form";
         }
         if (dataDto.getRepairId() == null) {
@@ -80,8 +82,8 @@ public class CarController {
         AcceptanceDataDto data = new AcceptanceDataDto();
         data = acceptanceService.getById(id);
         model.addAttribute("data", data);
-        model.addAttribute("fuels", Fuel.values());
-        model.addAttribute("cars", CarType.values());
+        model.addAttribute("fuels", Stream.of(Fuel.values()).map(Fuel::name).collect(Collectors.toSet()));
+        model.addAttribute("cars", Stream.of(CarType.values()).map(CarType::name).collect(Collectors.toSet()));
         return "acceptance_form";
     }
 }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.UserDTO"*/-->
+    <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.RepairDto"*/-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Karta przyjęcia pojazdu na warsztat | <a th:href="@{/car/acceptance/edit(id=${data.repairId})}">Edytuj dokument</a> </h2>
+
+<table border="2">
+    <thead>
+    <tr>dane karty przyjęcia pojazdu</tr>
+    <tr>
+        <th>numer zlecenia</th>
+        <th>data przyjęcia</th>
+        <th>data odbioru</th>
+        <th>koszt naprawy</th>
+        <th>uwagi klienta</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${data.acceptanceNumber}"></td>
+        <td th:text="${data.dateOfAdmission}"></td>
+        <td th:text="${data.dataOfPickup}"></td>
+        <td th:text="${data.estimatedRepairCost}"></td>
+        <td th:text="${data.scopeOfWork}"></td>
+    </tr>
+
+    </tbody>
+</table>
+
+<table border="2">
+    <thead>
+    <tr>dane klienta</tr>
+    <tr>
+        <th>Imie</th>
+        <th>Nazwisko</th>
+        <th>Firma</th>
+        <th>Telefon</th>
+        <th>Adres</th>
+        <th>Numer domu</th>
+        <th>Miasto</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${data.firstName}"></td>
+        <td th:text="${data.surname}"></td>
+        <td th:text="${data.company}"></td>
+        <td th:text="${data.phoneNumber}"></td>
+        <td th:text="${data.street}"></td>
+        <td th:text="${data.houseNumber}"></td>
+        <td th:text="${data.city}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<table border="2">
+    <thead>
+    <tr>dane pojazdu</tr>
+    <tr>
+        <th>Numer rejest.</th>
+        <th>Numer VIN.</th>
+        <th>Marka</th>
+        <th>Model</th>
+        <th>Rok prod.</th>
+        <th>Typ paliwa</th>
+        <th>Typ nadwozia</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td th:text="${data.plateNumber}"></td>
+        <td th:text="${data.vinNo}"></td>
+        <td th:text="${data.make}"></td>
+        <td th:text="${data.model}"></td>
+        <td th:text="${data.year}"></td>
+        <td th:text="${data.fuel}"></td>
+        <td th:text="${data.type}"></td>
+    </tr>
+    </tbody>
+</table></body>
+</html>
