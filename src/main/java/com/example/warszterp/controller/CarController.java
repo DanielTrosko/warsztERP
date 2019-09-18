@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -45,7 +46,7 @@ public class CarController {
     }
 
     @PostMapping("/acceptance/add")
-    public String processAcceptanceForm(@Valid @ModelAttribute("data") AcceptanceDataDto dataDto, BindingResult errors, Model model) {
+    public String processAcceptanceForm(@Valid @ModelAttribute("data") AcceptanceDataDto dataDto, BindingResult errors, Model model, Principal principal) {
 
         if (errors.hasErrors()) {
             model.addAttribute("fuels", Stream.of(Fuel.values()).map(Fuel::name).collect(Collectors.toSet()));
@@ -53,6 +54,7 @@ public class CarController {
             return "acceptance_form";
         }
         if (dataDto.getRepairId() == null) {
+            dataDto.setMechanicUsername(principal.getName());
             acceptanceService.save(dataDto);
             return "redirect:/car/acceptance/all";
         }

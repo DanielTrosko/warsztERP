@@ -65,4 +65,6 @@ public class AcceptanceDataDto {
     @NotBlank(message = "pole jest wymagane")
     private String postCode;
 
+    private String mechanicUsername;
+
 }

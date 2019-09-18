@@ -104,4 +104,8 @@ public class UserService {
     public UserDTO getById(Long id){
        return UserMapper.toDTO(userRepository.findById(id).get());
     }
+
+    public User getByUsername(String username){
+        return userRepository.getByUsername(username);
+    }
 }
