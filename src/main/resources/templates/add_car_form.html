@@ -7,11 +7,11 @@
 </head>
 <body>
 <form action="#" th:action="@{/admin/car/add}" method="post" th:object="${car}">
-    <p th:field="*{id}" hidden></p>
+    <input th:field="*{id}" hidden="true">
     <label for="owner">Właściciel</label>
     <select id="owner" name="owner">
         <option th:each="owner:${users}"
-                th:value="${owner}"
+                th:value="${owner.id}"
                 th:text="${owner.surname}"></option>
     </select>
 
@@ -37,15 +37,18 @@
 
     <label for="type">Typ nadwozia</label>
     <select name="type" id="type">
-        <option th:each="${types}"
-                th:value="${types}"
-                th:text="${types}"></option>
+        <option th:each="type : ${types}"
+                th:value="${type}"
+                th:text="${type}"></option>
     </select>
 
     <label for="fuel">Typ paliwa</label>
-    <input id="fuel" type="text" th:field="*{fuel}">
-    <p th:if="${#fields.hasErrors('fuel')}" th:errors="*{fuel}"></p>
-
+    <select id="fuel" name="fuel">
+        <option th:each="fuel : ${fuels}"
+        th:value="${fuel}"
+        th:text="${fuel}">
+        </option>
+    </select>
     <button value="submit" type="submit">Zapisz</button>
 </form>
 </body>

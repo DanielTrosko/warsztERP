@@ -28,13 +28,13 @@
         </thead>
         <tbody>
 
-        <th:block th:each="elem:${list}">
+        <th:block th:each="elem, iStat:${list}">
             <tr>
-                <td th:text="${list.indexOf(elem)+1}"></td>
+                <td th:text="${iStat.count}"></td>
                 <td th:text="${elem.plateNumber}"></td>
                 <td th:text="${elem.make}"></td>
                 <td th:text="${elem.model}">${elem.model}</td>
-                <td th:text="${elem.owner.surname} ${elem.owner.firstName}"></td>
+                <td th:text="${elem.owner.surname} + ' ' + ${elem.owner.firstName}"></td>
                 <td> - </td>
                 <td>
                     <a th:href="@{/admin/car/delete(id=${elem.id})}">usuń | </a>

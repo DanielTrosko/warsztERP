@@ -12,59 +12,57 @@
 <div>
     <h2>Forumlarz użytkownika</h2>
     <form th:object="${user}" method="post" th:action="@{/admin/user/add}">
-        <p th:field="*{id}" hidden/>
-        <p th:field="*{addressId}" hidden/>
+        <input th:field="*{id}" hidden="true"/>
+        <input th:field="*{addressId}" hidden="true"/>
         <label for="user-name">Nazwa użytkownika</label>
         <input id="user-name" type="text" th:field="*{username}">
-        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p><br>
 
         <label for="email">Email</label>
         <input id="email" type="text" th:field="*{email}">
-        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p><br>
 
         <label for="password">Hasło</label>
         <input id="password" type="password" th:field="*{password}">
-        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p><br>
 
         <label for="re-password">Powtórz hasło</label>
         <input id="re-password" type="password" th:field="*{rePassword}">
-        <p th:if="${#fields.hasErrors('rePassword')}" th:errors="*{rePassword}"></p>
+        <p th:if="${#fields.hasErrors('rePassword')}" th:errors="*{rePassword}"></p><br>
 
         <label for="company">Firma</label>
-        <input id="company" type="password" th:field="*{rePassword}">
-        <p th:if="${#fields.hasErrors('rePassword')}" th:errors="*{rePassword}"></p>
+        <input id="company" type="text" th:field="*{company}">
+        <p th:if="${#fields.hasErrors('company')}" th:errors="*{company}"></p><br>
 
         <label for="first-name">Imię</label>
         <input id="first-name" type="text" th:field="*{firstName}">
-        <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+        <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p><br>
 
         <label for="surname">Nazwisko</label>
         <input id="surname" type="text" th:field="*{surname}">
-        <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>
+        <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p><br>
 
-        <label for="phone-number">Email</label>
+        <label for="phone-number">Telefon</label>
         <input id="phone-number" type="text" th:field="*{phoneNumber}">
-        <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p>
+        <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p><br>
 
         <label for="street">Ulica</label>
         <input id="street" type="text" th:field="*{street}">
-        <p th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></p>
+        <p th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></p><br>
 
         <label for="house-number">Numer</label>
         <input id="house-number" type="text" th:field="*{houseNumber}">
-        <p th:if="${#fields.hasErrors('houseNumber')}" th:errors="*{houseNumber}"></p>
+        <p th:if="${#fields.hasErrors('houseNumber')}" th:errors="*{houseNumber}"></p><br>
 
         <label for="post-code">Kod pocztowy</label>
         <input id="post-code" type="text" th:field="*{postCode}">
-        <p th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}"></p>
+        <p th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}"></p><br>
 
         <label for="city">Miasto</label>
         <input id="city" type="text" th:field="*{city}">
-        <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></p>
+        <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></p><br>
 
         <button value="submit" type="submit">Zapisz</button>
-
-
     </form>
 </div>
 </body>
