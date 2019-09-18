@@ -27,11 +27,11 @@
         </thead>
         <tbody>
 
-            <th:block th:each="elem:${list}">th:block>
+            <th:block th:each="elem, iStat : ${list}">
             <tr>
-                <td th:text="${list.indexOf(elem)+1}"></td>
-                <td th:text="${elem.firstName} ${elem.surname} ${elem.company}"></td>
-                <td th:text="${elem.street} ${elem.houseNumber} ${elem.postCode} ${elem.city}"></td>
+                <td th:text="${iStat.count}"></td>
+                <td th:text="${elem.firstName}+ ' ' + ${elem.surname} + ' '+ ${elem.company}"></td>
+                <td th:text="${elem.street} + ' ' + ${elem.houseNumber} + ' ' + ${elem.postCode} + ' ' + ${elem.city}"></td>
                 <td th:text="${elem.username}"></td>
                 <td th:text="${elem.email}"></td>
                 <td th:text="${elem.phoneNumber}"></td>

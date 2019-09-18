@@ -95,6 +95,7 @@ public class AdminController {
     @PostMapping("/car/add")
     public String processAddCarForm(@Valid @ModelAttribute("car") CarDto carDto, BindingResult errors, Model model) {
 
+        errors.getAllErrors().stream().forEach(e -> System.out.println(e.toString()));
         if (errors.hasErrors()){
             model.addAttribute("fuels", Fuel.values());
             model.addAttribute("types", CarType.values());

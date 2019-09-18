@@ -15,9 +15,9 @@ public class Repair extends BaseEntity {
 
     @Column(name = "acceptance_no")
     private String acceptanceNumber;
-    @Column(name ="date_of_admission", nullable = false)
+    @Column(name ="date_of_admission", nullable = false, columnDefinition = "DATE NOT NULL")
     private LocalDate dateOfAdmission;
-    @Column(name = "date_of_pickup", nullable = false)
+    @Column(name = "date_of_pickup", nullable = false, columnDefinition = "DATE NOT NULL")
     private LocalDate dataOfPickup;
     @Column(name = "estimated_repair_cost", nullable = false)
     private Integer estimatedRepairCost;

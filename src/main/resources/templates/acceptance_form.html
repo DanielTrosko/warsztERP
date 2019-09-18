@@ -25,9 +25,9 @@
     <div class="container">
         <div class="row">
             <form action="#" th:action="@{/car/acceptance/add}" method="post" th:object="${data}">
-                <p th:field="*{userId}" hidden></p>
-                <p th:field="*{carId}" hidden></p>
-                <p th:field="*{repairId}" hidden></p>
+                <input th:field="*{userId}" hidden="true">
+                <input th:field="*{carId}" hidden="true">
+                <input th:field="*{repairId}" hidden="true">
 
                 <h2>Dane karty przyjęcia pojazdu</h2>
                 <label for="date-of-admission">Data przyjęcia pojazdu</label>
@@ -112,7 +112,7 @@
                 <input id="date-of-pickup" type="date" th:field="*{dataOfPickup}">
                 <p th:if="${#fields.hasErrors('dataOfPickup')}" th:errors="*{dataOfPickup}"></p>
 
-                <label for="estimated-repair-cost">Rok produkcji</label>
+                <label for="estimated-repair-cost">Koszt naprawy</label>
                 <input id="estimated-repair-cost" type="text" th:field="*{estimatedRepairCost}">
                 <p th:if="${#fields.hasErrors('estimatedRepairCost')}" th:errors="*{estimatedRepairCost}"></p>
 
