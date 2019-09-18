@@ -4,7 +4,10 @@ import com.example.warszterp.dto.AcceptanceDataDto;
 import com.example.warszterp.dto.RepairDto;
 import com.example.warszterp.model.entities.CarType;
 import com.example.warszterp.model.entities.Fuel;
+import com.example.warszterp.model.repositories.RepairRepository;
 import com.example.warszterp.services.AcceptanceService;
+import com.example.warszterp.services.CarPhotoService;
+import com.example.warszterp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +25,14 @@ public class CarController {
 
 
     private AcceptanceService acceptanceService;
+    private CarPhotoService carPhotoService;
+    private RepairRepository repairRepository;
 
     @Autowired
-    public CarController(AcceptanceService acceptanceService) {
+    public CarController(AcceptanceService acceptanceService, CarPhotoService carPhotoService, RepairRepository repairRepository) {
         this.acceptanceService = acceptanceService;
+        this.carPhotoService = carPhotoService;
+        this.repairRepository = repairRepository;
     }
 
     @GetMapping("/acceptance/add")
@@ -44,7 +51,8 @@ public class CarController {
             model.addAttribute("fuels", Stream.of(Fuel.values()).map(Fuel::name).collect(Collectors.toSet()));
             model.addAttribute("cars", Stream.of(CarType.values()).map(CarType::name).collect(Collectors.toSet()));
             return "acceptance_form";
-        } if (dataDto.getRepairId() == null){
+        }
+        if (dataDto.getRepairId() == null) {
             acceptanceService.save(dataDto);
             return "redirect:/car/acceptance/all";
         }
@@ -59,17 +67,18 @@ public class CarController {
         model.addAttribute("list", list);
         return "acceptance_list";
     }
+
     @GetMapping("/acceptance/one")
-    public String displayChosenAcceptance(@RequestParam("id") Long id, Model model){
+    public String displayChosenAcceptance(@RequestParam("id") Long id, Model model) {
 
         AcceptanceDataDto data = new AcceptanceDataDto();
         data = acceptanceService.getById(id);
         model.addAttribute("data", data);
-    return "acceptance_single";
+        return "acceptance_single";
     }
 
     @GetMapping("/acceptance/edit")
-    public String editAcceptance(Model model, @RequestParam("id") Long id){
+    public String editAcceptance(Model model, @RequestParam("id") Long id) {
         AcceptanceDataDto data = new AcceptanceDataDto();
         data = acceptanceService.getById(id);
         model.addAttribute("data", data);
