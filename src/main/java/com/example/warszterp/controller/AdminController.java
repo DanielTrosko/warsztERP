@@ -31,7 +31,7 @@ public class AdminController {
 
     @GetMapping
     public String displayAdminPanel() {
-        return "admin_panel";
+        return "main_menu";
     }
 
 
