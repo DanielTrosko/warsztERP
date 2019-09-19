@@ -46,7 +46,7 @@ public class ClientController {
     @GetMapping("/history/{repairId}")
     public String displayRepairHistory(Model model, @PathVariable("repairId") Long id){
 
-        model.addAttribute("history", repairService.getRepairHistoryByRepairId(id));
+        model.addAttribute("history", repairService.getAllRepairHistoryByRepairId(id));
         return "repair_history_single";
     }
 }

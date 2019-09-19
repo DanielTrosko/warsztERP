@@ -18,6 +18,7 @@
         <th>Data wpisu</th>
         <th>autor</th>
         <th>treść</th>
+        <th sec:authorize="hasRole('ROLE_ADMIN')">akcje</th>
     </tr>
     </thead>
     <tbody>
@@ -27,6 +28,8 @@
         <td th:text="${histElem.noteDate}"></td>
         <td th:text="${histElem.mechanicId.firstName + ' ' + histElem.mechanicId.surname}"></td>
         <td th:text="${histElem.note}"></td>
+        <th sec:authorize="hasRole('ROLE_ADMIN')">
+        <a th:href="@{'/admin/history/edit/' + ${histElem.id}}">edytuj</a> | <a th:href="@{/admin/history/del(noteId=${histElem.id}, repairId=${histElem.repairId.id})}">usuń</a></th>
     </tr>
     </tbody>
 </table>

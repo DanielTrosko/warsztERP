@@ -108,4 +108,8 @@ public class UserService {
     public User getByUsername(String username){
         return userRepository.getByUsername(username);
     }
+
+    public UserDTO getUserDtoByUsername(String username){
+        return UserMapper.toDTO(userRepository.getByUsername(username));
+    }
 }

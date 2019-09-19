@@ -2,6 +2,8 @@ package com.example.warszterp.services;
 
 import com.example.warszterp.dto.AcceptanceDataDto;
 import com.example.warszterp.dto.RepairDto;
+import com.example.warszterp.dto.RepairHistoryDto;
+import com.example.warszterp.mapper.RepairHistoryMapper;
 import com.example.warszterp.mapper.RepairMapper;
 import com.example.warszterp.model.entities.Car;
 import com.example.warszterp.model.entities.Repair;
@@ -55,18 +57,19 @@ public class RepairService {
         return RepairMapper.toDtoList(list);
     }
 
-    public RepairHistory getFilledRepairHistoryObjectWithNoNote(String mechanicUsername, Long repairId){
+    public RepairHistoryDto getFilledRepairHistoryObjectWithNoNote(String mechanicUsername, Long repairId){
 
         RepairHistory repairHistory = new RepairHistory();
         repairHistory.setNoteDate(LocalDate.now());
         repairHistory.setMechanicId(userService.getByUsername(mechanicUsername));
         repairHistory.setRepairId(repairRepository.getOne(repairId));
-        return repairHistory;
+        return RepairHistoryMapper.toDto(repairHistory);
     }
 
-    public void saveRepairHistoryNote(RepairHistory repairHistory){
-        repairHistoryRepository.save(repairHistory);
+    public RepairHistoryDto getRepairHistoryElemById(Long id){
+      return   RepairHistoryMapper.toDto(repairHistoryRepository.getOne(id));
     }
+
 
     public AcceptanceDataDto getDataFromRepair(Long id){
         Repair repair =  new Repair();
@@ -82,7 +85,15 @@ public class RepairService {
         repairRepository.save(repair);
     }
 
-    public List<RepairHistory> getRepairHistoryByRepairId(Long repairId){
-       return repairHistoryRepository.findAllByRepairId_Id(repairId);
+    public List<RepairHistoryDto> getAllRepairHistoryByRepairId(Long repairId){
+       return RepairHistoryMapper.toDtoList(repairHistoryRepository.findAllByRepairId_Id(repairId));
+    }
+
+    public void saveRepairHistoryElem(RepairHistoryDto repairHistory){
+        repairHistoryRepository.save(RepairHistoryMapper.toEntity(repairHistory));
+    }
+
+    public void deleteRepairHistoryElem(Long elemId){
+        repairHistoryRepository.deleteById(elemId);
     }
 }

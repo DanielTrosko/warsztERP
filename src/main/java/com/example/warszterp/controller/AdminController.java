@@ -1,12 +1,13 @@
 package com.example.warszterp.controller;
 
 import com.example.warszterp.dto.CarDto;
+import com.example.warszterp.dto.RepairHistoryDto;
 import com.example.warszterp.dto.UserDTO;
 import com.example.warszterp.model.entities.CarType;
 import com.example.warszterp.model.entities.Fuel;
 import com.example.warszterp.services.CarService;
+import com.example.warszterp.services.RepairService;
 import com.example.warszterp.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,13 +21,14 @@ import java.util.List;
 public class AdminController {
 
 
-    private UserService userService;
-    private CarService carService;
+    private final UserService userService;
+    private final CarService carService;
+    private final RepairService repairService;
 
-    @Autowired
-    public AdminController(UserService userService, CarService carService) {
+    public AdminController(UserService userService, CarService carService, RepairService repairService) {
         this.userService = userService;
         this.carService = carService;
+        this.repairService = repairService;
     }
 
     @GetMapping
@@ -65,7 +67,7 @@ public class AdminController {
     }
 
     @GetMapping("/user/delete")
-    public String deleteUser(@RequestParam("id") Long id, Model model) {
+    public String deleteUser(@RequestParam("id") Long id) {
         userService.deleteUser(id);
         return "redirect:/admin/user";
     }
@@ -123,5 +125,29 @@ public class AdminController {
         model.addAttribute("types", CarType.values());
         model.addAttribute("users", userService.getAllraw());
         return  "add_car_form";
+    }
+
+    @GetMapping("/repairs")
+    public String displayRepairs(Model model){
+       model.addAttribute("repairs", repairService.getAll());
+        return "repair_list";
+    }
+
+    @GetMapping("/history/edit/{noteId}")
+    public String editHistoryNote(@PathVariable("noteId") Long id, Model model){
+       RepairHistoryDto historyNote = repairService.getRepairHistoryElemById(id);
+
+       model.addAttribute("historyNote",historyNote);
+       return "repair_history_add";
+    }
+
+    @GetMapping("/history/del")
+    public String deleteRepairHistoryElem(
+            @RequestParam("noteId") Long noteId,
+            @RequestParam("repairId") Long repairId,
+            Model model){
+        repairService.deleteRepairHistoryElem(noteId);
+        model.addAttribute("history", repairService.getAllRepairHistoryByRepairId(repairId));
+        return "repair_history_single";
     }
 }

@@ -22,7 +22,7 @@
             <th>Model</th>
             <th>Właściciel</th>
             <th>Status</th>
-            <th sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')">Akcje</th>
+            <th sec:authorize="hasAnyRole('ROLE_ADMIN')">Akcje</th>
         </tr>
         </thead>
         <tbody>
@@ -35,7 +35,7 @@
                 <td th:text="${elem.model}">${elem.model}</td>
                 <td th:text="${elem.owner.surname} + ' ' + ${elem.owner.firstName}"></td>
                 <td> - </td><br>
-                <td sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')">
+                <td sec:authorize="hasRole('ROLE_ADMIN')">
                     <a th:href="@{/admin/car/delete(id=${elem.id})}">usuń | </a>
                     <a th:href="@{/admin/car/edit(id=${elem.id})}">edytuj</a>
                 </td>
