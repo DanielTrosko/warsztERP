@@ -14,7 +14,7 @@
     <a th:href="@{/edit}">Edytuj dane</a><br>
     <a th:href="@{/logout}">Wyloguj</a><br>
 </div>
-<div sec:authorize="hasRole('ROLE_USER')">
+<div sec:authorize="hasRole('ROLE_CLIENT')">
     <a th:href="@{/client/cars}">Twoje pojazdy</a><br>
     <a th:href="@{/client/repairs}">Historia napraw</a><br>
 </div>

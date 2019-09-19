@@ -1,10 +1,13 @@
 package com.example.warszterp.controller;
 
 import com.example.warszterp.dto.CarDto;
+import com.example.warszterp.dto.RepairDto;
 import com.example.warszterp.services.CarService;
+import com.example.warszterp.services.RepairService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
@@ -15,10 +18,12 @@ import java.util.List;
 public class ClientController {
 
     private final CarService carService;
+    private final RepairService repairService;
 
 
-    public ClientController(CarService carService) {
+    public ClientController(CarService carService, RepairService repairService) {
         this.carService = carService;
+        this.repairService = repairService;
     }
 
     @GetMapping("/cars")
@@ -31,8 +36,17 @@ public class ClientController {
     }
 
     @GetMapping("/repairs")
-    public String displayRepairs(){
+    public String displayRepairs(Model model, Principal principal){
 
-        return "";
+       List<RepairDto> repairs = repairService.getAllByUsername(principal.getName());
+        model.addAttribute("repairs", repairs);
+        return "repair_list";
+    }
+
+    @GetMapping("/history/{repairId}")
+    public String displayRepairHistory(Model model, @PathVariable("repairId") Long id){
+
+        model.addAttribute("history", repairService.getRepairHistoryByRepairId(id));
+        return "repair_history_single";
     }
 }

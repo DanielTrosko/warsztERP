@@ -9,16 +9,9 @@ import com.example.warszterp.model.entities.RepairHistory;
 import com.example.warszterp.model.entities.User;
 import com.example.warszterp.model.repositories.RepairHistoryRepository;
 import com.example.warszterp.model.repositories.RepairRepository;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.FetchProfile;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.cdi.Eager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -53,6 +46,12 @@ public class RepairService {
      public List<RepairDto> getAll(){
         List<Repair> list = repairRepository.findAll();
         return RepairMapper.toDtoList(list);
+
+    }
+
+    public List<RepairDto> getAllByUsername(String username){
+        List<Repair> list = repairRepository.findAllByCar_Owner_Username(username);
+        return RepairMapper.toDtoList(list);
     }
 
     public AcceptanceDataDto getDataFromRepair(Long id){
@@ -67,5 +66,9 @@ public class RepairService {
         repair.setCar(car);
         repair.setUser(user);
         repairRepository.save(repair);
+    }
+
+    public List<RepairHistory> getRepairHistoryByRepairId(Long repairId){
+       return repairHistoryRepository.findAllByRepairId_Id(repairId);
     }
 }
