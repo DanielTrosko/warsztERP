@@ -32,30 +32,34 @@ public class RepairService {
         this.repairRepository = repairRepository;
     }
 
-     public void getDataAndSave(AcceptanceDataDto data, User user, Car car){
+    public void getDataAndSave(AcceptanceDataDto data, User user, Car car) {
         Repair repair = new Repair();
         repair = RepairMapper.acceptanceDataToEntity(data);
         repair.setCar(car);
         repair.setUser(user);
         repairRepository.save(repair);
-     }
+    }
 
-     public List<RepairDto> getAll(){
+    public List<RepairDto> getAll() {
         List<Repair> list = repairRepository.findAll();
         return RepairMapper.toDtoList(list);
     }
 
-    public AcceptanceDataDto getDataFromRepair(Long id){
-        Repair repair =  new Repair();
+    public AcceptanceDataDto getDataFromRepair(Long id) {
+        Repair repair = new Repair();
         repair = repairRepository.findById(id).get();
         return RepairMapper.entityToAcceptanceData(repair);
     }
 
-    public void getDataAndUpdate(AcceptanceDataDto data, User user, Car car){
+    public void getDataAndUpdate(AcceptanceDataDto data, User user, Car car) {
         Repair repair = new Repair();
         repair = RepairMapper.acceptanceDataToEntity(data);
         repair.setCar(car);
         repair.setUser(user);
         repairRepository.save(repair);
+    }
+
+    public RepairDto getByAcceptanceNumber(String number) {
+        return RepairMapper.toDto(repairRepository.getByAcceptanceNumber(number));
     }
 }

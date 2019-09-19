@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,12 +15,10 @@ import java.time.LocalDateTime;
 public class Calendar extends BaseEntity {
     private String name;
     @Column(name = "start_date")
-    private LocalDateTime startDate;
+    private LocalDate startDate;
     @Column(name = "stop_date")
-    private LocalDateTime stopDate;
+    private LocalDate stopDate;
     private String description;
     private String employee;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "repair_id", nullable = false)
-    private Repair repair;
+    private String repair;
 }

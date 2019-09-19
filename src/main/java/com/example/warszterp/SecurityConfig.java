@@ -21,11 +21,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-    }
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
@@ -38,10 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests()
-                .antMatchers("/user**").hasAnyRole("USER", "EMPLOYE", "ADMIN")
-                .antMatchers("/car**").permitAll()
-                .antMatchers("/admin**").permitAll()
+                .authorizeRequests().antMatchers("/user**").hasAnyRole("USER", "EMPLOYE", "ADMIN")
                 .and()
                 .authorizeRequests().antMatchers("/employe**").hasAnyRole("EMPLOYE", "ADMIN")
                 .and()
