@@ -14,6 +14,8 @@
         <div class="d-flex row justify-content-center">
             <div class="col-md-4">
                 <form action="#" th:action="@{/signin/}" method="post">
+                    <table>
+                        <tr>
                     <div class="md-form">
                     <label for="user-name">Username</label>
                     <input type="text" id="user-name" class="form-control" name="username">
@@ -34,10 +36,9 @@
             </div>
         </div>
     </div>
-    <table>
-        <tr>
 
-<br/>
+<footer th:insert="footer.html" class="mt-5"></footer>
+
 <!--<c:if test="${not empty msg}">
     <span style="color:green"><c:out value="${msg}"/></span>
     <c:remove var="msg" scope="session" />
