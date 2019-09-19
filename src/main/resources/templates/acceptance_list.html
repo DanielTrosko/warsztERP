@@ -5,41 +5,56 @@
     <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.RepairDto"*/-->
     <meta charset="UTF-8">
     <title>Acceptance list</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
 
-<table border="2">
-    <thead></thead>
-    <tr>Lista kart przyjęć pojazdów:</tr>
-    <tr>
-        <td>#</td>
-        <td>numer</td>
-        <td>data przyjecia</td>
-        <td>data oddania</td>
-        <td>koszt naprawy</td>
-        <td>uwagi klienta </td>
-        <td>tabl.rejestr. pojazdu</td>
-        <td>właściciel</td>
-        <td>szczegóły</td>
+<header th:insert="header.html"></header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <table class="table">
+                <thead></thead>
+                <tr class="mt-5">Lista kart przyjęć pojazdów:</tr>
+                <tr>
+                    <td style="font-weight: bold">#</td>
+                    <td style="font-weight: bold">numer</td>
+                    <td style="font-weight: bold">data przyjecia</td>
+                    <td style="font-weight: bold">data oddania</td>
+                    <td style="font-weight: bold">koszt naprawy</td>
+                    <td style="font-weight: bold">uwagi klienta </td>
+                    <td style="font-weight: bold">tabl.rejestr. pojazdu</td>
+                    <td style="font-weight: bold">właściciel</td>
+                    <td style="font-weight: bold">szczegóły</td>
 
 
-    </tr>
-    <tbody></tbody>
-    <th:block th:each="elem:${list}">
-        <tr>
-            <td th:text="${list.indexOf(elem)+1}"></td>
-            <td th:text="${elem.acceptanceNumber}"></td>
-            <td th:text="${elem.dateOfAdmission}"></td>
-            <td th:text="${elem.dataOfPickup}"></td>
-            <td th:text="${elem.estimatedRepairCost}"></td>
-            <td th:text="${elem.scopeOfWork}"></td>
-            <td th:text="${elem.car.plateNumber}"></td>
-            <td th:text="${elem.user.firstName} + ' ' + ${elem.user.surname}"></td>
-            <td>
-                <a th:href="@{/car/acceptance/one(id=${elem.id})}">link</a>
-            </td>
-        </tr>
-    </th:block>
-</table>
+                </tr>
+                <tbody></tbody>
+                <th:block th:each="elem:${list}">
+                    <tr>
+                        <td th:text="${list.indexOf(elem)+1}"></td>
+                        <td th:text="${elem.acceptanceNumber}"></td>
+                        <td th:text="${elem.dateOfAdmission}"></td>
+                        <td th:text="${elem.dataOfPickup}"></td>
+                        <td th:text="${elem.estimatedRepairCost}"></td>
+                        <td th:text="${elem.scopeOfWork}"></td>
+                        <td th:text="${elem.car.plateNumber}"></td>
+                        <td th:text="${elem.user.firstName} + ' ' + ${elem.user.surname}"></td>
+                        <td>
+                            <a th:href="@{/car/acceptance/one(id=${elem.id})}" style="color:white; text-underline: #BCBCBC ">link</a>
+                        </td>
+                    </tr>
+                </th:block>
+            </table>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
 </body>
 </html>

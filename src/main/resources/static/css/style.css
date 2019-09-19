@@ -1,0 +1,67 @@
+/* CSS Document */
+body{
+    background-color: #1F1F1F;
+    color:white;
+}
+.navigation{
+    color:white;
+}
+.nav-item{
+    color:white;
+}
+
+.navbar{
+    margin-right: 6.5em;
+    margin-left: 6.5em;
+    color:white;
+    border-radius:5px;
+    background-color: white;
+
+}
+.hero{
+
+    margin-top:1.5em;
+
+}
+
+.main{
+    color:white;
+}
+.md-form{
+    color:white !important;
+}
+h2{
+    font-family:Helvetica;
+    color:#BCBCBC;
+}
+hr {
+    background-color: #5A5A5A;
+    height: 1px;
+    border: 0;
+    width: 60%;
+}
+.tr, .td, .th{
+    color:white;
+}
+.table{
+    color:white;
+}
+a{
+    color:white;
+
+}
+a:visited{
+    color:white;
+}
+
+.jumbotron{
+	background: url("/img/car.jpg")no-repeat center center;
+	margin-top:-2.5em;
+	color:black;
+	height:50vmin;
+}
+
+
+
+
+
