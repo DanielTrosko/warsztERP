@@ -7,7 +7,6 @@ import com.example.warszterp.model.entities.Fuel;
 import com.example.warszterp.model.repositories.RepairRepository;
 import com.example.warszterp.services.AcceptanceService;
 import com.example.warszterp.services.CarPhotoService;
-import com.example.warszterp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

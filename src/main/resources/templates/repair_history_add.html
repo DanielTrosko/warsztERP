@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org/extras/dialect"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz wpisu do historii</title>
+</head>
+<body>
+<p><a th:href="@{/main}">Powrót do panelu głównego</a></p>
+
+<p>Dodaj wpis do historii naprawy</p>
+<div>
+    <form action="#" th:action="@{/emp/history/add}" method="post" th:object="${historyNote}">
+        <input th:field="*{noteDate}" th:value="*{noteDate}"  hidden="true">
+        <input th:field="*{mechanicId}" th:value="*{mechanicId}" hidden="true">
+        <input th:field="*{repairId}" th:value="*{repairId}"  hidden="true">
+        <label>Treść:</label>
+        <input th:field="*{note}">
+        <input type="submit" value="Zapisz">
+    </form>
+</div>
+</body>
+</html>

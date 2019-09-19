@@ -30,6 +30,7 @@ public class ClientController {
     public String displayCars(Principal principal, Model model){
 
        List<CarDto> cars = carService.getAllByUsername(principal.getName());
+       cars.stream().forEach(dto -> System.out.println(dto.toString()));
        model.addAttribute("list", cars);
         return "cars_list";
     }

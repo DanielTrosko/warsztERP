@@ -55,6 +55,19 @@ public class RepairService {
         return RepairMapper.toDtoList(list);
     }
 
+    public RepairHistory getFilledRepairHistoryObjectWithNoNote(String mechanicUsername, Long repairId){
+
+        RepairHistory repairHistory = new RepairHistory();
+        repairHistory.setNoteDate(LocalDate.now());
+        repairHistory.setMechanicId(userService.getByUsername(mechanicUsername));
+        repairHistory.setRepairId(repairRepository.getOne(repairId));
+        return repairHistory;
+    }
+
+    public void saveRepairHistoryNote(RepairHistory repairHistory){
+        repairHistoryRepository.save(repairHistory);
+    }
+
     public AcceptanceDataDto getDataFromRepair(Long id){
         Repair repair =  new Repair();
         repair = repairRepository.findById(id).get();
