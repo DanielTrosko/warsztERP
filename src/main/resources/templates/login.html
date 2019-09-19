@@ -3,25 +3,40 @@
 <head>
     <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.UserDTO"*/-->
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
 </head>
 <body>
-<form action="#" th:action="@{/signin/}" method="post">
+<header th:insert="header.html">
+</header>
+
+
+    <div class="container">
+        <div class="d-flex row justify-content-center">
+            <div class="col-md-4">
+                <form action="#" th:action="@{/signin/}" method="post">
+                    <div class="md-form">
+                    <label for="user-name">Username</label>
+                    <input type="text" id="user-name" class="form-control" name="username">
+                    </div>
+                    </tr>
+                    <tr>
+                        <div class="md-form">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" name="password">
+                        </div>
+                    </tr>
+                    <br>
+                    <tr>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
     <table>
         <tr>
-            <label for="user-name">Username</label>
-            <input type="text" id="user-name" class="form-control" name="username">
-        </tr>
-        <tr>
-            <label for="password">Password</label>
-            <input type="password" id="password" class="form-control" name="password">
-        </tr>
-        <br>
-        <tr>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </tr>
-    </table>
-</form>
+
 <br/>
 <!--<c:if test="${not empty msg}">
     <span style="color:green"><c:out value="${msg}"/></span>
