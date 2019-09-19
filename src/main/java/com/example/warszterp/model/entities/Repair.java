@@ -28,8 +28,8 @@ public class Repair extends BaseEntity {
     @JoinColumn(name = "car_id", nullable = false)
     private Car car;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "mechanic_id", nullable = false)
+    private User mechanic;
     @OneToMany(mappedBy = "repairId", cascade = CascadeType.ALL)
     private List<RepairHistory> repairHistory;
 }

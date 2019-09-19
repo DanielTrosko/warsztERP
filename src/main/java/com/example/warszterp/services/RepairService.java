@@ -29,15 +29,16 @@ public class RepairService {
         this.userService = userService;
     }
 
-    public void getDataAndSave(AcceptanceDataDto data, User user, Car car){
+    public void getDataAndSave(AcceptanceDataDto data, Car car){
         Repair repair = new Repair();
         repair = RepairMapper.acceptanceDataToEntity(data);
         repair.setCar(car);
-        repair.setUser(user);
+        User mechanic = userService.getByUsername(data.getMechanicUsername());
+        repair.setMechanic(mechanic);
         Repair savedRepair = repairRepository.save(repair);
         RepairHistory initialNote = new RepairHistory();
         initialNote.setRepairId(savedRepair);
-        initialNote.setMechanicId(userService.getByUsername(data.getMechanicUsername()));
+        initialNote.setMechanicId(mechanic);
         initialNote.setNoteDate(LocalDate.now());
         initialNote.setNote("Przyjęcie pojazdu na warsztat");
         repairHistoryRepository.save(initialNote);
@@ -64,7 +65,7 @@ public class RepairService {
         Repair repair = new Repair();
         repair = RepairMapper.acceptanceDataToEntity(data);
         repair.setCar(car);
-        repair.setUser(user);
+        repair.setMechanic(user);
         repairRepository.save(repair);
     }
 

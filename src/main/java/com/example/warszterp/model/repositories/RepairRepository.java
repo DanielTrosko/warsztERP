@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface RepairRepository extends JpaRepository<Repair, Long> {
 
-    List<Repair> findAllByUser_Username(String user);
     List<Repair> findAllByCar_Owner_Username(String user);
 }
