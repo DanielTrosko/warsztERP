@@ -68,4 +68,5 @@ public class UserController {
         model.addAttribute("user", userService.getUserDtoByUsername(principal.getName()));
         return "add_user_form";
     }
+
 }

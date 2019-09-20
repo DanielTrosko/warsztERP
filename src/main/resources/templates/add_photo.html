@@ -12,21 +12,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <h1>Photo for order number: ${id}</h1>
+            <h1>Photo for order number: </h1><span th:field="*{id}"></span>
 
             <h2>Add a new photo</h2>
             <div>
-                <form th:enctype="multipart/form-data" method="post" th:action="@{/car/photo/add/${id}}">
+                <form enctype="multipart/form-data" method="post" th:action="@{/car/photo/add/${id}}">
                     <p>
                         Add photo: <input th:type="file" name="file"/>
                     </p>
                     <p>
-                        <button type="submit" value="submit" class="btn btn-primary">Add</button>
+                        <input type="submit" value="Upload"/>
                     </p>
                 </form>
-                <th:block th:if="${not empty photo}">
-                    <p style="color:red">${photo}</p>
-                </th:block>
+<!--                <th:block th:if="${not empty photo}">-->
+<!--                    <p style="color:red">${photo}</p>-->
+<!--                </th:block>-->
             </div>
             <h2>Photo list</h2>
             <table>

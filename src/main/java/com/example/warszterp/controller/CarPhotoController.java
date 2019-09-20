@@ -27,14 +27,14 @@ public class CarPhotoController {
         this.repairRepository = repairRepository;
     }
 
-    @GetMapping(value = "/add{lId}")
+    @GetMapping(value = "/add/")
     public String preparePhotos(Long id, Model model) {
-        model.addAttribute("id", id.toString());
+        model.addAttribute("id", id);
         return "add_photo";
     }
 
     @PostMapping("/add/{id}")
-    public String uploadFiles(@RequestParam MultipartFile file, Model model, @PathVariable Long id) throws IOException {
+    public String uploadFiles(@RequestParam MultipartFile file, Model model, @PathVariable String id) throws IOException {
         if (file == null || file.getBytes().length == 0) {
             model.addAttribute("error", "Brak pliku");
             return "redirect:/views/cos";
@@ -43,10 +43,11 @@ public class CarPhotoController {
             carPhotoDTO.setFileName(file.getOriginalFilename());
             carPhotoDTO.setContentType(file.getContentType());
             carPhotoDTO.setData(file.getBytes());
-            carPhotoDTO.setRepair(repairRepository.getOne(id));
-            carPhotoService.addRepairPhoto(id, carPhotoDTO);
+            Long ids = Long.parseLong(id);
+            carPhotoDTO.setRepair(repairRepository.getOne(ids));
+            carPhotoService.addRepairPhoto(ids, carPhotoDTO);
             model.addAttribute("add", "Photo was add");
-            model.addAttribute("files", carPhotoService.getRepairPhotos(id));
+            model.addAttribute("files", carPhotoService.getRepairPhotos(ids));
             return "add_photo";
         }
         model.addAttribute("photo", "Only image");

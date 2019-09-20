@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
   <link rel="icon" type="image/x-icon" href="static/favicon.ico" />
 <meta charset="UTF-8">
@@ -12,18 +12,72 @@
     <div class="jumbotron card card-image">
       <div class="text-center py-5 px-4"> </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-center" sec:authorize="!isAuthenticated()">
+      <div class="col-md-8 col-sm-12">
+        <!-- Material form login -->
+        <div class="card">
+
+          <h5 class="card-header elegant-color white-text text-center py-4">
+            <strong>Sign in</strong>
+          </h5>
+
+          <!--Card content-->
+          <div class="card-body px-lg-5 pt-0">
+
+            <!-- Form -->
+            <form class="text-center" style="color: #757575;" action="#" th:action="@{/signin}" method="post">
+
+              <!-- Email -->
+              <div class="md-form">
+                <input type="text" id="loginuser" class="form-control" name="username">
+                <label for="loginuser">Login</label>
+              </div>
+
+              <!-- Password -->
+              <div class="md-form">
+                <input type="password" id="loginpassword" class="form-control" name="password">
+                <label for="loginpassword">Password</label>
+              </div>
+
+              <div class="d-flex justify-content-around">
+                <div>
+                  <!-- Remember me -->
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="loginFormRemember">
+                    <label class="form-check-label" for="loginFormRemember">Remember me</label>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Sign in button -->
+              <button class="btn btn-outline-dark btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+
+              <!-- Register -->
+
+              <!-- Social login -->
+
+            </form>
+            <!-- Form -->
+
+          </div>
+
+        </div>
+        <!-- Material form login -->
+      </div>
+    </div>
+    <div sec:authorize="hasAnyRole('ROLE_EMPLOYEE', 'ROLE_ADMIN')" class="row">
       <div class="col-md-4"><!-- Card Dark -->
         <div class="card"> 
           
           <!-- Card image -->
-          <div class="view overlay"> <img class="card-img-top" src="/img/img1.jpg" alt="Card image cap"> <a>
+          <div class="view overlay"> <img class="card-img-top" src="/img/img1.jpg" alt="Card image cap"> <a th:href="@{/main}">
             <div class="mask rgba-white-slight"></div>
             </a> </div>
           
           <!-- Card content -->
-          <div class="card-body elegant-color white-text rounded-bottom"> <a href="#">
-            <h4 class="card-title text-center">Lista samochodów</h4>
+          <div class="card-body elegant-color white-text rounded-bottom"> <a th:href="@{/main}">
+            <h4 class="card-title text-center">Main Menu</h4>
             </a>
 
           </div>
@@ -61,6 +115,95 @@
           </div>
         </div>
         <!-- Card Dark --></div>
+    </div>
+    <div sec:authorize="hasRole('ROLE_ADMIN')" class="row mt-2">
+      <div class="col-md-4">
+        <div class="card">
+
+          <!-- Card image -->
+          <div class="view overlay"> <img class="card-img-top" src="/img/users.png" alt="Card image cap"> <a th:href="@{/admin/user/add}">
+            <div class="mask rgba-white-slight"></div>
+          </a> </div>
+
+          <!-- Card content -->
+          <div class="card-body elegant-color white-text rounded-bottom"> <a th:href="@{/admin/user}">
+            <h4 class="card-title text-center">Użytkownicy</h4>
+          </a>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+
+          <!-- Card image -->
+          <div class="view overlay"> <img class="card-img-top" src="/img/user.png" alt="Card image cap"> <a th:href="@{/admin/user/add}">
+            <div class="mask rgba-white-slight"></div>
+          </a> </div>
+
+          <!-- Card content -->
+          <div class="card-body elegant-color white-text rounded-bottom"> <a th:href="@{/admin/user/add}">
+            <h4 class="card-title text-center">Dodaj użytkownika</h4>
+          </a>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+
+          <!-- Card image -->
+          <div class="view overlay"> <img class="card-img-top" src="/img/img1.jpg" alt="Card image cap"> <a th:href="@{/admin/car}">
+            <div class="mask rgba-white-slight"></div>
+          </a> </div>
+
+          <!-- Card content -->
+          <div class="card-body elegant-color white-text rounded-bottom"> <a th:href="@{/admin/car}">
+            <h4 class="card-title text-center">Lista pojazdów</h4>
+          </a>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row justify-content-center mt-2" sec:authorize="hasRole('ROLE_CLIENT')">
+      <div class="col-md-4">
+        <div class="card">
+
+          <!-- Card image -->
+          <div class="view overlay"> <img class="card-img-top" src="/img/form.jpg" alt="Card image cap"> <a th:href="@{/client/cars}">
+            <div class="mask rgba-white-slight"></div>
+          </a> </div>
+
+          <!-- Card content -->
+          <div class="card-body elegant-color white-text rounded-bottom"> <a th:href="@{/client/cars}">
+            <h4 class="card-title text-center">Twoje pojazdy</h4>
+          </a>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+
+          <!-- Card image -->
+          <div class="view overlay"> <img class="card-img-top" src="/img/form.jpg" alt="Card image cap"> <a th:href="@{/client/repairs}">
+            <div class="mask rgba-white-slight"></div>
+          </a> </div>
+
+          <!-- Card content -->
+          <div class="card-body elegant-color white-text rounded-bottom"> <a th:href="@{/client/repairs}">
+            <h4 class="card-title text-center">Historia napraw</h4>
+          </a>
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>
