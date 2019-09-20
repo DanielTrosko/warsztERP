@@ -3,6 +3,8 @@ package com.example.warszterp.controller;
 import com.example.warszterp.dto.MessageDTO;
 import com.example.warszterp.mapper.MessageMapper;
 import com.example.warszterp.model.repositories.MessageRepository;
+import org.dom4j.rule.Mode;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +35,12 @@ public class MessageController {
     public String createMessage(@Valid @ModelAttribute MessageDTO messageDTO, Model model){
         messageRepository.save(MessageMapper.toEntity(messageDTO));
         return "message_add";
+    }
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @GetMapping(value = "/admin/showall")
+    public String showAllMessage(Model model){
+        model.addAttribute("msg", messageRepository.findAll());
+        return "show_message";
     }
 
 }
