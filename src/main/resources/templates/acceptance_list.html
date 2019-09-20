@@ -27,6 +27,7 @@
                     <td style="font-weight: bold">tabl.rejestr. pojazdu</td>
                     <td style="font-weight: bold">właściciel</td>
                     <td style="font-weight: bold">szczegóły</td>
+                    <td style="font-weight: bold">PDF</td>
 
 
                 </tr>
@@ -44,6 +45,9 @@
                         <td>
                             <a th:href="@{/car/acceptance/one(id=${elem.id})}" style="color:white; text-underline: #BCBCBC ">link</a> |
                             <a th:href="@{/car/photo/add/(id=${elem.id})}">Dodaj zdjęcie</a>
+                        </td>
+                        <td>
+                            <a th:href="@{/employee/pdf/generated/(id=${elem.id})}" style="color:white; text-underline: #BCBCBC ">PDF</a>
                         </td>
                     </tr>
                 </th:block>
