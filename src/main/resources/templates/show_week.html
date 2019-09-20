@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <table class="table">
+                <thead></thead>
+                <tr class="mt-5">Calendar 7 days</tr>
+                <tr>
+                    <td style="font-weight: bold">ID</td>
+                    <td style="font-weight: bold">Name</td>
+                    <td style="font-weight: bold">Start Date</td>
+                    <td style="font-weight: bold">Stop Date</td>
+                    <td style="font-weight: bold">Description</td>
+                    <td style="font-weight: bold">Employee </td>
+                    <td style="font-weight: bold">Nr. repair</td>
+
+
+                </tr>
+                <tbody></tbody>
+                <th:block th:each="elem:${week}">
+                    <tr>
+                        <td th:text="${elem.id}"></td>
+                        <td th:text="${elem.name}"></td>
+                        <td th:text="${elem.startDate}"></td>
+                        <td th:text="${elem.stopDate}"></td>
+                        <td th:text="${elem.description}"></td>
+                        <td th:text="${elem.employee}"></td>
+                        <td th:text="${elem.repair}"></td>
+                    </tr>
+                </th:block>
+            </table>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

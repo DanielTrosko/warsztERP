@@ -8,6 +8,7 @@ import com.example.warszterp.model.entities.User;
 import com.example.warszterp.model.repositories.AddressRepository;
 import com.example.warszterp.model.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,22 +26,20 @@ public class UserService {
 
     private UserRepository userRepository;
     private AddressRepository addressRepository;
-    private PasswordEncoder passwordEncoder;
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Autowired
-    public UserService(UserRepository userRepository, AddressRepository addressRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, AddressRepository addressRepository) {
         this.userRepository = userRepository;
         this.addressRepository = addressRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     public void createUser(UserDTO userDTO) {
         User user = userToEntity(userDTO);
         user.setEnabled(true);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         addressRepository.save(user.getAddress());
         userRepository.save(user);
         insertWithQuery(user.getUsername());
@@ -48,7 +47,7 @@ public class UserService {
 
     public void updateUser(UserDTO userDTO){
         User user = userToEntity(userDTO);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         userRepository.save(user);
     }
 

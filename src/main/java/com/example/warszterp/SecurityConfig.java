@@ -39,24 +39,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/user**").hasAnyRole("USER", "EMPLOYE", "ADMIN")
-                .antMatchers("/car**").permitAll()
-                .antMatchers("/admin**").permitAll()
-                .anyRequest().authenticated()
-
-//Ustawienia Łukasza:
-                .and()
-                .formLogin()
-                .and()
-                .httpBasic();
-
-
-//Ustawienia Daniela:
-
-/*                .and()
-                .authorizeRequests().antMatchers("/employe**").hasAnyRole("EMPLOYE", "ADMIN")
-                .and()
-                .authorizeRequests().antMatchers("/admin**").hasAnyRole("ADMIN")
+                .antMatchers("/user/**").hasAnyRole("USER", "EMPLOYEE", "ADMIN")
+                .antMatchers("/car/**").hasAnyRole("EMPLOYEE", "ADMIN")
+                .antMatchers("/admin/**").hasAnyRole("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -64,9 +49,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .successHandler(((httpServletRequest, httpServletResponse, authentication) -> {
-                    String errMsg = "Correct Login";
-                    httpServletRequest.setAttribute("msg", errMsg);
-                    httpServletResponse.sendRedirect("/successlogin");
+                    String msg = "Correct Login";
+                    httpServletRequest.setAttribute("msg", msg);
+                    httpServletResponse.sendRedirect("/");
                 }))
                 .failureHandler((httpServletRequest, httpServletResponse, e) -> {
                     String errMsg;
@@ -89,7 +74,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .csrf().disable();
-*/
 
 
     }
