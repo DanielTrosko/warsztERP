@@ -1,44 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org/extras/dialect"
+<html lang="en"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <meta charset="UTF-8">
     <title>Lista twoich napraw</title>
 </head>
 <body>
-<p><a th:href="@{/main}">Powrót do panelu głównego</a></p>
-<table border="2">
-    <thead>
-    <tr>Lista napraw twoich pojazdów</tr>
-    <tr>
-        <th>#</th>
-        <th>Nr karty przyjecia na warsztat</th>
-        <th>Nr rej. pojazdu</th>
-        <th>Data przyjęcia</th>
-        <th>Data odbioru pojazdu</th>
-        <th>Koszt naprawy</th>
-        <th>Historia naprawy</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each=" repair, iStat : ${repairs}">
-        <td th:text="${iStat.count}"></td>
-        <td th:text="${repair.acceptanceNumber}"></td>
-        <td th:text="${repair.car.plateNumber}"></td>
-        <td th:text="${repair.dateOfAdmission}"></td>
-        <td th:text="${repair.dataOfPickup}"></td>
-        <td th:text="${repair.estimatedRepairCost}"></td>
-        <td sec:authorize="hasRole('ROLE_CLIENT')">
-            <a th:href="@{'/client/history/' + ${repair.id}}">przeglądaj</a>
-        </td>
-        <td sec:authorize="hasAnyRole('ROLE_EMPLOYEE', 'ROLE_ADMIN')">
-            <a th:href="@{'/emp/history/' + ${repair.id}}">przeglądaj | </a>
-            <a th:href="@{'/emp/history/add/' + ${repair.id}}">dodaj wpis</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-sm-12">
+            <p><a th:href="@{/main}">Powrót do panelu głównego</a></p>
+            <table class="table">
+                <thead>
+                <tr>Lista napraw twoich pojazdów</tr>
+                <tr>
+                    <th style="font-weight: bold">#</th>
+                    <th style="font-weight: bold">Nr karty przyjecia na warsztat</th>
+                    <th style="font-weight: bold">Nr rej. pojazdu</th>
+                    <th style="font-weight: bold">Data przyjęcia</th>
+                    <th style="font-weight: bold">Data odbioru pojazdu</th>
+                    <th style="font-weight: bold">Koszt naprawy</th>
+                    <th style="font-weight: bold">Historia naprawy</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each=" repair, iStat : ${repairs}">
+                    <td th:text="${iStat.count}"></td>
+                    <td th:text="${repair.acceptanceNumber}"></td>
+                    <td th:text="${repair.car.plateNumber}"></td>
+                    <td th:text="${repair.dateOfAdmission}"></td>
+                    <td th:text="${repair.dataOfPickup}"></td>
+                    <td th:text="${repair.estimatedRepairCost}"></td>
+                    <td sec:authorize="hasRole('ROLE_CLIENT')">
+                        <a th:href="@{'/client/history/' + ${repair.id}}">przeglądaj</a>
+                    </td>
+                    <td sec:authorize="hasAnyRole('ROLE_EMPLOYEE', 'ROLE_ADMIN')">
+                        <a th:href="@{'/emp/history/' + ${repair.id}}">przeglądaj | </a>
+                        <a th:href="@{'/emp/history/add/' + ${repair.id}}">dodaj wpis</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

@@ -6,64 +6,109 @@
     <title>Dodawanie użytkowanika</title>
 </head>
 <body>
-<p><a th:href="@{/main}">Powrót do panelu głównego</a></p>
+<header th:insert="header.html"></header>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-sm-12">
+            <p><a th:href="@{/main}">Powrót do panelu głównego</a></p>
 
-<div>
-    <h2>Forumlarz użytkownika</h2>
-    <form th:object="${user}" method="post" th:action="@{/admin/user/add}">
-        <input th:field="*{id}" hidden="true"/>
-        <input th:field="*{addressId}" hidden="true"/>
-        <label for="user-name">Nazwa użytkownika</label>
-        <input id="user-name" type="text" th:field="*{username}">
-        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p><br>
+            <div>
+                <h2>Forumlarz użytkownika</h2>
+                <form th:object="${user}" method="post" th:action="@{/admin/user/add}">
+                    <input th:field="*{id}" hidden="true"/>
+                    <input th:field="*{addressId}" hidden="true"/>
 
-        <label for="email">Email</label>
-        <input id="email" type="text" th:field="*{email}">
-        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p><br>
+                    <div class="md-form">
+                        <label for="user-name">Nazwa użytkownika</label>
+                        <input id="user-name" type="text" class="form-control" th:field="*{username}">
+                        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p><br>
+                    </div>
 
-        <label for="password">Hasło</label>
-        <input id="password" type="password" th:field="*{password}">
-        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p><br>
 
-        <label for="re-password">Powtórz hasło</label>
-        <input id="re-password" type="password" th:field="*{rePassword}">
-        <p th:if="${#fields.hasErrors('rePassword')}" th:errors="*{rePassword}"></p><br>
+                    <div class="md-form">
+                        <label for="email">Email</label>
+                        <input id="email" type="text" class="form-control" th:field="*{email}">
+                        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p><br>
+                    </div>
 
-        <label for="company">Firma</label>
-        <input id="company" type="text" th:field="*{company}">
-        <p th:if="${#fields.hasErrors('company')}" th:errors="*{company}"></p><br>
 
-        <label for="first-name">Imię</label>
-        <input id="first-name" type="text" th:field="*{firstName}">
-        <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p><br>
+                    <div class="md-form">
+                        <label for="password">Hasło</label>
+                        <input id="password" type="password" class="form-control" th:field="*{password}">
+                        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p><br>
+                    </div>
 
-        <label for="surname">Nazwisko</label>
-        <input id="surname" type="text" th:field="*{surname}">
-        <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p><br>
 
-        <label for="phone-number">Telefon</label>
-        <input id="phone-number" type="text" th:field="*{phoneNumber}">
-        <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p><br>
+                    <div class="md-form">
+                        <label for="re-password">Powtórz hasło</label>
+                        <input id="re-password" type="password" class="form-control" th:field="*{rePassword}">
+                        <p th:if="${#fields.hasErrors('rePassword')}" th:errors="*{rePassword}"></p><br>
+                    </div>
 
-        <label for="street">Ulica</label>
-        <input id="street" type="text" th:field="*{street}">
-        <p th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></p><br>
 
-        <label for="house-number">Numer</label>
-        <input id="house-number" type="text" th:field="*{houseNumber}">
-        <p th:if="${#fields.hasErrors('houseNumber')}" th:errors="*{houseNumber}"></p><br>
+                    <div class="md-form">
+                        <label for="company">Firma</label>
+                        <input id="company" type="text" class="form-control" th:field="*{company}">
+                        <p th:if="${#fields.hasErrors('company')}" th:errors="*{company}"></p><br>
+                    </div>
 
-        <label for="post-code">Kod pocztowy</label>
-        <input id="post-code" type="text" th:field="*{postCode}">
-        <p th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}"></p><br>
 
-        <label for="city">Miasto</label>
-        <input id="city" type="text" th:field="*{city}">
-        <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></p><br>
+                    <div class="md-form">
+                        <label for="first-name">Imię</label>
+                        <input id="first-name" type="text" class="form-control" th:field="*{firstName}">
+                        <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p><br>
+                    </div>
 
-        <button value="submit" type="submit">Zapisz</button>
-    </form>
+
+                    <div class="md-form">
+                        <label for="surname">Nazwisko</label>
+                        <input id="surname" type="text" class="form-control" th:field="*{surname}">
+                        <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p><br>
+                    </div>
+
+
+                    <div class="md-form">
+                        <label for="phone-number">Telefon</label>
+                        <input id="phone-number" type="text" class="form-control" th:field="*{phoneNumber}">
+                        <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p><br>
+                    </div>
+
+
+                    <div class="md-form">
+                        <label for="street">Ulica</label>
+                        <input id="street" type="text" class="form-control" th:field="*{street}">
+                        <p th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></p><br>
+                    </div>
+
+
+                    <div class="md-form">
+                        <label for="house-number">Numer</label>
+                        <input id="house-number" type="text" class="form-control" th:field="*{houseNumber}">
+                        <p th:if="${#fields.hasErrors('houseNumber')}" th:errors="*{houseNumber}"></p><br>
+                    </div>
+
+
+                    <div class="md-form">
+                        <label for="post-code">Kod pocztowy</label>
+                        <input id="post-code" type="text" class="form-control" th:field="*{postCode}">
+                        <p th:if="${#fields.hasErrors('postCode')}" th:errors="*{postCode}"></p><br>
+                    </div>
+
+
+                    <div class="md-form">
+                        <label for="city">Miasto</label>
+                        <input id="city" type="text" class="form-control" th:field="*{city}">
+                        <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></p><br>
+                    </div>
+
+
+                    <button value="submit" type="submit" class="btn btn-primary">Zapisz</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+
 <footer th:insert="footer.html" class="mt-5"></footer>
 </body>
 </html>

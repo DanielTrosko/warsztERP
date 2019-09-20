@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj zdjęcie</title>
+    <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.RepairDto"*/-->
+
+</head>
+<body>
+<header th:insert="header.html"></header>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Photo for order number: ${id}</h1>
+
+            <h2>Add a new photo</h2>
+            <div>
+                <form th:enctype="multipart/form-data" method="post" th:action="@{/car/photo/add/${id}}">
+                    <p>
+                        Add photo: <input th:type="file" name="file"/>
+                    </p>
+                    <p>
+                        <button type="submit" value="submit" class="btn btn-primary">Add</button>
+                    </p>
+                </form>
+                <th:block th:if="${not empty photo}">
+                    <p style="color:red">${photo}</p>
+                </th:block>
+            </div>
+            <h2>Photo list</h2>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                </tr>
+
+                    <tr th:each="file, ifile:${files}">
+                        <td th:text="${ifile.count}"></td>
+                        <td th:text="${file.fileName}"></td>
+                        <td th:text="${file.contentType}"></td>
+                        <td> <img th:src="@{/car/photo/show/${file.id}}" style="width:200px; height:200px" alt="zdjecie"/>
+                        </td>
+                    </tr>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<footer th:insert="footer.html"></footer>
+</body>
+</html>
