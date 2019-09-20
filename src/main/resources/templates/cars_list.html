@@ -1,49 +1,56 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org/extras/dialect"
+<html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      >
 <head>
     <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.UserDTO"*/-->
     <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.RepairDto"*/-->
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Lista pojazdów</title>
 </head>
 <body>
-<p><a th:href="@{/main}">Powrót do panelu głównego</a></p>
-<div style="margin-top: 40px;">
-    <table border="2">
-        <thead>
-        <tr>Pojazdy</tr>
-        <tr>
-            <th>#</th>
-            <th>Numer rej.</th>
-            <th>Marka</th>
-            <th>Model</th>
-            <th>Właściciel</th>
-            <th>Status</th>
-            <th sec:authorize="hasAnyRole('ROLE_ADMIN')">Akcje</th>
-        </tr>
-        </thead>
-        <tbody>
-
-        <th:block th:each="elem, iStat:${list}">
+<header th:insert="header.html"></header>
+<div class="container">
+    <div class="row justify-content-center">
+        <p><a th:href="@{/main}">Powrót do panelu głównego</a></p>
+        <br>
+        <table class="table">
+            <thead>
+            <tr>Pojazdy</tr>
             <tr>
-                <td th:text="${iStat.count}"></td>
-                <td th:text="${elem.plateNumber}"></td>
-                <td th:text="${elem.make}"></td>
-                <td th:text="${elem.model}">${elem.model}</td>
-                <td th:text="${elem.owner.surname} + ' ' + ${elem.owner.firstName}"></td>
-                <td> - </td><br>
-                <td sec:authorize="hasRole('ROLE_ADMIN')">
-                    <a th:href="@{/admin/car/delete(id=${elem.id})}">usuń | </a>
-                    <a th:href="@{/admin/car/edit(id=${elem.id})}">edytuj</a>
-                </td>
+                <th style="font-weight: bold">#</th>
+                <th style="font-weight: bold">Numer rej.</th>
+                <th style="font-weight: bold">Marka</th>
+                <th style="font-weight: bold">Model</th>
+                <th style="font-weight: bold">Właściciel</th>
+                <th style="font-weight: bold">Status</th>
+                <th sec:authorize="hasAnyRole('ROLE_ADMIN')" style="font-weight: bold">Akcje</th>
             </tr>
+            </thead>
+            <tbody>
+
+            <th:block th:each="elem, iStat:${list}">
+                <tr>
+                    <td th:text="${iStat.count}"></td>
+                    <td th:text="${elem.plateNumber}"></td>
+                    <td th:text="${elem.make}"></td>
+                    <td th:text="${elem.model}">${elem.model}</td>
+                    <td th:text="${elem.owner.surname} + ' ' + ${elem.owner.firstName}"></td>
+                    <td> - </td><br>
+                    <td sec:authorize="hasRole('ROLE_ADMIN')">
+                        <a th:href="@{/admin/car/delete(id=${elem.id})}">usuń | </a>
+                        <a th:href="@{/admin/car/edit(id=${elem.id})}">edytuj</a>
+                    </td>
+                </tr>
             </th:block>
 
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
 </div>
+
+
+
 </body>
 </html>

@@ -1,37 +1,50 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org/extras/dialect"
+<html lang="en"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      >
 <head>
     <meta charset="UTF-8">
     <title>Panel główny</title>
 </head>
 <body>
-<p>Panel użytkownika <span th:text="${#authentication.getName()}"></span></p>
+<header th:insert="header.html"></header>
 
-<div>
-    <a th:href="@{/edit}">Edytuj dane</a><br>
-    <a th:href="@{/logout}">Wyloguj</a><br>
+<div class="container">
+    <div class="row justify-content-center"><p>Panel użytkownika <span th:text="${#authentication.getName()}"></span></p></div>
+    <div class="row justify-content-center">
+
+        <br>
+        <div class="col-md-6 col-sm-12">
+            <div>
+                <a th:href="@{/edit}">Edytuj dane</a><br>
+                <a th:href="@{/signout}">Wyloguj</a><br>
+            </div>
+            <div sec:authorize="hasRole('ROLE_CLIENT')">
+                <a th:href="@{/client/cars}">Twoje pojazdy</a><br>
+                <a th:href="@{/client/repairs}">Historia napraw</a><br>
+            </div>
+            <div sec:authorize="hasRole('ROLE_EMPLOYEE')">
+                <a th:href="@{/emp/cars}">Pojazdy</a><br>
+                <a th:href="@{/emp/repairs}">Twoje naprawy</a><br>
+            </div>
+            <div sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')">
+                <a th:href="@{/car/acceptance/add}">Dodaj formularz przyjęcia pojazdu</a><br>
+                <a th:href="@{/car/acceptance/all}">Przeglądaj formularze</a><br>
+            </div>
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
+                <a th:href="@{/admin/user}">Lista użytkowników</a><br>
+                <a th:href="@{/admin/user/add}">Dodaj użytkownika</a><br>
+                <a th:href="@{/admin/car}">Lista pojazdów</a><br>
+                <a th:href="@{/admin/car/add}">Dodaj pojazd</a><br>
+                <a th:href="@{/admin/repairs}">Lista napraw</a><br>
+            </div>
+        </div>
+
+    </div>
 </div>
-<div sec:authorize="hasRole('ROLE_CLIENT')">
-    <a th:href="@{/client/cars}">Twoje pojazdy</a><br>
-    <a th:href="@{/client/repairs}">Historia napraw</a><br>
-</div>
-<div sec:authorize="hasRole('ROLE_EMPLOYEE')">
-    <a th:href="@{/emp/cars}">Pojazdy</a><br>
-    <a th:href="@{/emp/repairs}">Twoje naprawy</a><br>
-</div>
-    <div sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_EMPLOYEE')">
-    <a th:href="@{/car/acceptance/add}">Dodaj formularz przyjęcia pojazdu</a><br>
-    <a th:href="@{/car/acceptance/all}">Przeglądaj formularze</a><br>
-</div>
-<div sec:authorize="hasRole('ROLE_ADMIN')">
-        <a th:href="@{/admin/user}">Lista użytkowników</a><br>
-        <a th:href="@{/admin/user/add}">Dodaj użytkownika</a><br>
-        <a th:href="@{/admin/car}">Lista pojazdów</a><br>
-        <a th:href="@{/admin/car/add}">Dodaj pojazd</a><br>
-        <a th:href="@{/admin/repairs}">Lista napraw</a><br>
-</div>
+
+
+<footer th:insert="footer.html"></footer>
 </body>
 </html>
