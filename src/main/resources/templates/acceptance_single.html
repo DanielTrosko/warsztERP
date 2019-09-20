@@ -7,82 +7,110 @@
     <title>Title</title>
 </head>
 <body>
+<header th:insert="header.html">
+</header>
 
-<p><a th:href="@{/main}">Powrót do panelu głównego</a> | <a th:href="@{/car/acceptance/edit(id=${data.repairId})}">Edytuj dokument</a></p>
-<p>Karta przyjęcia pojazdu na warsztat </p>
+<div class="container justify-content-center">
 
-<table border="2">
-    <thead>
-    <tr>dane karty przyjęcia pojazdu</tr>
-    <tr>
-        <th>numer zlecenia</th>
-        <th>data przyjęcia</th>
-        <th>data odbioru</th>
-        <th>koszt naprawy</th>
-        <th>uwagi klienta</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td th:text="${data.acceptanceNumber}"></td>
-        <td th:text="${data.dateOfAdmission}"></td>
-        <td th:text="${data.dataOfPickup}"></td>
-        <td th:text="${data.estimatedRepairCost}"></td>
-        <td th:text="${data.scopeOfWork}"></td>
-    </tr>
+    <div class="row justify-content-center">
+        <h5>Karta przyjęcia pojazdu na warsztat | <a th:href="@{/car/acceptance/edit(id=${data.repairId})}">Edytuj dokument</a> </h5>
+        <hr class="my-5">
+    </div>
 
-    </tbody>
-</table>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                <tr class="text-center"><h3>Dane karty przyjęcia pojazdu</h3></tr>
+                <tr>
+                    <th style="font-weight: bold">Numer zlecenia</th>
+                    <th style="font-weight: bold">Data przyjęcia</th>
+                    <th style="font-weight: bold">Data odbioru</th>
+                    <th style="font-weight: bold">Koszt naprawy</th>
+                    <th style="font-weight: bold">Uwagi klienta</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${data.acceptanceNumber}"></td>
+                    <td th:text="${data.dateOfAdmission}"></td>
+                    <td th:text="${data.dataOfPickup}"></td>
+                    <td th:text="${data.estimatedRepairCost}"></td>
+                    <td th:text="${data.scopeOfWork}"></td>
+                </tr>
 
-<table border="2">
-    <thead>
-    <tr>dane klienta</tr>
-    <tr>
-        <th>Imie</th>
-        <th>Nazwisko</th>
-        <th>Firma</th>
-        <th>Telefon</th>
-        <th>Adres</th>
-        <th>Numer domu</th>
-        <th>Miasto</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td th:text="${data.firstName}"></td>
-        <td th:text="${data.surname}"></td>
-        <td th:text="${data.company}"></td>
-        <td th:text="${data.phoneNumber}"></td>
-        <td th:text="${data.street}"></td>
-        <td th:text="${data.houseNumber}"></td>
-        <td th:text="${data.city}"></td>
-    </tr>
-    </tbody>
-</table>
+                </tbody>
+            </table>
 
-<table border="2">
-    <thead>
-    <tr>dane pojazdu</tr>
-    <tr>
-        <th>Numer rejest.</th>
-        <th>Numer VIN.</th>
-        <th>Marka</th>
-        <th>Model</th>
-        <th>Rok prod.</th>
-        <th>Typ paliwa</th>
-        <th>Typ nadwozia</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td th:text="${data.plateNumber}"></td>
-        <td th:text="${data.vinNo}"></td>
-        <td th:text="${data.make}"></td>
-        <td th:text="${data.model}"></td>
-        <td th:text="${data.year}"></td>
-        <td th:text="${data.fuel}"></td>
-        <td th:text="${data.type}"></td>
-    </tr>
-    </tbody>
-</table></body>
+        </div>
+    </div>
+    <hr class="my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                <tr><h3>Dane klienta</h3></tr>
+                <tr>
+                    <th style="font-weight: bold">Imie</th>
+                    <th style="font-weight: bold">Nazwisko</th>
+                    <th style="font-weight: bold">Firma</th>
+                    <th style="font-weight: bold">Telefon</th>
+                    <th style="font-weight: bold">Adres</th>
+                    <th style="font-weight: bold">Numer domu</th>
+                    <th style="font-weight: bold">Miasto</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${data.firstName}"></td>
+                    <td th:text="${data.surname}"></td>
+                    <td th:text="${data.company}"></td>
+                    <td th:text="${data.phoneNumber}"></td>
+                    <td th:text="${data.street}"></td>
+                    <td th:text="${data.houseNumber}"></td>
+                    <td th:text="${data.city}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <hr class="my-5">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                <tr><h3>Dane pojazdu</h3></tr>
+                <tr>
+                    <th style="font-weight: bold">Numer rejest.</th>
+                    <th style="font-weight: bold">Numer VIN.</th>
+                    <th style="font-weight: bold">Marka</th>
+                    <th style="font-weight: bold">Model</th>
+                    <th style="font-weight: bold">Rok prod.</th>
+                    <th style="font-weight: bold">Typ paliwa</th>
+                    <th style="font-weight: bold">Typ nadwozia</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${data.plateNumber}"></td>
+                    <td th:text="${data.vinNo}"></td>
+                    <td th:text="${data.make}"></td>
+                    <td th:text="${data.model}"></td>
+                    <td th:text="${data.year}"></td>
+                    <td th:text="${data.fuel}"></td>
+                    <td th:text="${data.type}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+<footer th:insert="footer.html" class="mt-5"></footer>
+</body>
 </html>
