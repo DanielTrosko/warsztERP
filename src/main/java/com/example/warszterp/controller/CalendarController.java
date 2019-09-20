@@ -43,7 +43,7 @@ public class CalendarController {
     @PostMapping(value = "/add")
     public String createEvent(@Valid @ModelAttribute("/event") CalendarDTO calendarDTO, Model model) {
         calendarService.saveNewEvent(calendarDTO);
-        return "redirect:/login";
+        return "redirect:/calendar/week";
     }
 
     @GetMapping(value = "/event/{id}")
@@ -54,9 +54,9 @@ public class CalendarController {
         return "";
     }
 
-    @PostMapping(value = "/week")
+    @GetMapping(value = "/week")
     public String getWeek(Model model) {
         model.addAttribute("week", calendarService.getSevenDaysEvent(LocalDate.now(), LocalDate.now().plus(7,ChronoUnit.DAYS)));
-        return "";
+        return "show_week";
     }
 }
