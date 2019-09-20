@@ -17,7 +17,7 @@ public class User extends BaseUser {
     private Address address;
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     private List<Car> cars;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "mechanic", cascade = CascadeType.ALL)
     private List<Repair> repairs;
 
 }

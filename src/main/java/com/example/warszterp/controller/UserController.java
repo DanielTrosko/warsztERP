@@ -5,11 +5,13 @@ import com.example.warszterp.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 public class UserController {
@@ -23,7 +25,7 @@ public class UserController {
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String addUser(Model model) {
-        model.addAttribute("UserDTO", new UserDTO());
+        model.addAttribute("user", new UserDTO());
         return "add_user_form";
     }
 
@@ -58,5 +60,12 @@ public class UserController {
     @RequestMapping(value = "/")
     public String index() {
         return "index";
+    }
+
+    @GetMapping("/edit")
+    public String editUser(Model model, Principal principal){
+
+        model.addAttribute("user", userService.getUserDtoByUsername(principal.getName()));
+        return "add_user_form";
     }
 }

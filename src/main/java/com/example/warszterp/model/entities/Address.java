@@ -24,3 +24,4 @@ public class Address {
     private String postCode;
 
 }
+

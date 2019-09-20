@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        return new BCryptPasswordEncoder();
     }
 
     @Override
@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .dataSource(dataSource)
                 .usersByUsernameQuery("SELECT username, password, enabled from user WHERE username=?")
                 .authoritiesByUsernameQuery("SELECT username, authority FROM authorities WHERE username=?")
-                .passwordEncoder(new BCryptPasswordEncoder());
+                .passwordEncoder(passwordEncoder());
     }
 
     @Override
@@ -42,7 +42,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user**").hasAnyRole("USER", "EMPLOYE", "ADMIN")
                 .antMatchers("/car**").permitAll()
                 .antMatchers("/admin**").permitAll()
+                .anyRequest().authenticated()
+
+//Ustawienia Łukasza:
                 .and()
+                .formLogin()
+                .and()
+                .httpBasic();
+
+
+//Ustawienia Daniela:
+
+/*                .and()
                 .authorizeRequests().antMatchers("/employe**").hasAnyRole("EMPLOYE", "ADMIN")
                 .and()
                 .authorizeRequests().antMatchers("/admin**").hasAnyRole("ADMIN")
@@ -78,6 +89,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .csrf().disable();
+*/
 
 
     }

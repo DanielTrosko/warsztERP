@@ -6,10 +6,7 @@
     <title>Title</title>
 </head>
 <body>
-
-<a th:href="@{/admin/user}">Użytkownicy</a>
-<a th:href="@{/admin/car}">Pojazdy</a>
-
+<p><a th:href="@{/main}">Powrót do panelu głównego</a></p>
 <div style="margin-top: 40px;">
     <table border="2">
         <thead>
@@ -46,7 +43,6 @@
 
         </tbody>
     </table>
-    <a th:href="@{/admin/user/add}">Dodaj użytkownika</a>
 </div>
 <footer th:insert="footer.html" class="mt-5"></footer>
 </body>

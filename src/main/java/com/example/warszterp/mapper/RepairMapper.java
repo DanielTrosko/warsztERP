@@ -17,7 +17,7 @@ public class RepairMapper {
         data.setEstimatedRepairCost(repair.getEstimatedRepairCost());
         data.setScopeOfWork(repair.getScopeOfWork());
         data.setRepairId(repair.getId());
-        data.setUserId(repair.getUser().getId());
+        data.setUserId(repair.getMechanic().getId());
         data.setCarId(repair.getCar().getId());
 
         return data;
@@ -38,7 +38,7 @@ public class RepairMapper {
 
     public static Repair toEntity(RepairDto dto){
         Repair repair = new Repair();
-        repair.setUser(dto.getUser());
+        repair.setMechanic(dto.getUser());
         repair.setCar(dto.getCar());
         repair.setId(dto.getId());
         repair.setScopeOfWork(dto.getScopeOfWork());
@@ -52,7 +52,7 @@ public class RepairMapper {
 
     public static RepairDto toDto(Repair repair){
         RepairDto dto = new RepairDto();
-        dto.setUser(repair.getUser());
+        dto.setUser(repair.getMechanic());
         dto.setCar(repair.getCar());
         dto.setId(repair.getId());
         dto.setScopeOfWork(repair.getScopeOfWork());

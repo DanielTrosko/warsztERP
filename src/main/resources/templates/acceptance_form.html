@@ -21,6 +21,7 @@
 </div>
 <section class="main mt-5">
     <div class="container">
+
         <form action="#" th:action="@{/car/acceptance/add}" method="post" th:object="${data}">
             <input th:field="*{userId}" hidden="true">
             <input th:field="*{carId}" hidden="true">
