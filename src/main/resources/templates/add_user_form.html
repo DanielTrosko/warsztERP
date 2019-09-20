@@ -6,8 +6,7 @@
     <title>Dodawanie użytkowanika</title>
 </head>
 <body>
-<a th:href="@{/admin/user}">Użytkownicy</a>
-<a th:href="@{/admin/car}">Pojazdy</a><br>
+<p><a th:href="@{/main}">Powrót do panelu głównego</a></p>
 
 <div>
     <h2>Forumlarz użytkownika</h2>
@@ -65,5 +64,6 @@
         <button value="submit" type="submit">Zapisz</button>
     </form>
 </div>
+<footer th:insert="footer.html" class="mt-5"></footer>
 </body>
 </html>

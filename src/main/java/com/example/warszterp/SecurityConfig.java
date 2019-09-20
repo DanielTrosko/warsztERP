@@ -21,20 +21,39 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .usersByUsernameQuery("SELECT username, password, enabled from user WHERE username=?")
                 .authoritiesByUsernameQuery("SELECT username, authority FROM authorities WHERE username=?")
-                .passwordEncoder(new BCryptPasswordEncoder());
+                .passwordEncoder(passwordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .authorizeRequests().antMatchers("/user**").hasAnyRole("USER", "EMPLOYE", "ADMIN")
+                .authorizeRequests()
+                .antMatchers("/user**").hasAnyRole("USER", "EMPLOYE", "ADMIN")
+                .antMatchers("/car**").permitAll()
+                .antMatchers("/admin**").permitAll()
+                .anyRequest().authenticated()
+
+//Ustawienia Łukasza:
                 .and()
+                .formLogin()
+                .and()
+                .httpBasic();
+
+
+//Ustawienia Daniela:
+
+/*                .and()
                 .authorizeRequests().antMatchers("/employe**").hasAnyRole("EMPLOYE", "ADMIN")
                 .and()
                 .authorizeRequests().antMatchers("/admin**").hasAnyRole("ADMIN")
@@ -70,6 +89,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .csrf().disable();
+*/
 
 
     }

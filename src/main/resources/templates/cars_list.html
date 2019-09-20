@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.thymeleaf.org/extras/dialect"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.UserDTO"*/-->
     <!--/*@thymesVar id="UserDTO" type="com.example.warszterp.dto.RepairDto"*/-->
@@ -7,11 +10,7 @@
     <title>Title</title>
 </head>
 <body>
-​
-​
-​
-<a th:href="@{/admin/user}">Użytkownicy</a>
-<a th:href="@{/admin/car}">Pojazdy</a>
+<p><a th:href="@{/main}">Powrót do panelu głównego</a></p>
 <div style="margin-top: 40px;">
     <table border="2">
         <thead>
@@ -23,7 +22,7 @@
             <th>Model</th>
             <th>Właściciel</th>
             <th>Status</th>
-            <th>Akcje</th>
+            <th sec:authorize="hasAnyRole('ROLE_ADMIN')">Akcje</th>
         </tr>
         </thead>
         <tbody>
@@ -35,11 +34,10 @@
                 <td th:text="${elem.make}"></td>
                 <td th:text="${elem.model}">${elem.model}</td>
                 <td th:text="${elem.owner.surname} + ' ' + ${elem.owner.firstName}"></td>
-                <td> - </td>
-                <td>
+                <td> - </td><br>
+                <td sec:authorize="hasRole('ROLE_ADMIN')">
                     <a th:href="@{/admin/car/delete(id=${elem.id})}">usuń | </a>
                     <a th:href="@{/admin/car/edit(id=${elem.id})}">edytuj</a>
-                    ​
                 </td>
             </tr>
             </th:block>
@@ -47,7 +45,5 @@
         </tbody>
     </table>
 </div>
-<a th:href="@{/admin/car/add}">Dodaj pojazd</a>
-​
 </body>
 </html>

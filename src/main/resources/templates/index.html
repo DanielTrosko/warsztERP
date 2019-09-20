@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+<meta charset="UTF-8">
+<title>Strona główna</title>
 </head>
 <body>
-TODO
+<header th:insert="header.html"></header>
+<main>
+  <div class="container">
+    <div class="jumbotron card card-image">
+      <div class="text-center py-5 px-4"> </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4"><!-- Card Dark -->
+        <div class="card"> 
+          
+          <!-- Card image -->
+          <div class="view overlay"> <img class="card-img-top" src="/img/img1.jpg" alt="Card image cap"> <a>
+            <div class="mask rgba-white-slight"></div>
+            </a> </div>
+          
+          <!-- Card content -->
+          <div class="card-body elegant-color white-text rounded-bottom"> <a href="#">
+            <h4 class="card-title text-center">Lista samochodów</h4>
+            </a>
+
+          </div>
+        </div>
+        <!-- Card Dark --></div>
+      <div class="col-md-4"><!-- Card Dark -->
+        <div class="card"> 
+          
+          <!-- Card image -->
+          <div class="view overlay"> <img class="card-img-top" src="/img/lists.jpg" alt="Card image cap"> <a th:href="@{/car/acceptance/all}">
+            <div class="mask rgba-white-slight"></div>
+            </a> </div>
+          
+          <!-- Card content -->
+          <div class="card-body elegant-color white-text rounded-bottom"> <a th:href="@{/car/acceptance/all}">
+            <h4 class="card-title text-center">Lista napraw</h4>
+            </a>
+
+          </div>
+        </div>
+        <!-- Card Dark --></div>
+      <div class="col-md-4"><!-- Card Dark -->
+        <div class="card"> 
+          
+          <!-- Card image -->
+          <div class="view overlay"> <img class="card-img-top" src="/img/form.jpg" alt="Card image cap"> <a th:href="@{/car/acceptance/add}">
+            <div class="mask rgba-white-slight"></div>
+            </a> </div>
+          
+          <!-- Card content -->
+          <div class="card-body elegant-color white-text rounded-bottom"> <a th:href="@{/car/acceptance/add}">
+            <h4 class="card-title text-center">Dodaj zlecenie</h4>
+            </a>
+
+          </div>
+        </div>
+        <!-- Card Dark --></div>
+    </div>
+  </div>
+</main>
+<footer th:insert="footer.html" class="mt-5"></footer>
 </body>
 </html>

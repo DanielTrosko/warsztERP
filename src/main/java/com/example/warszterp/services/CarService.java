@@ -61,6 +61,10 @@ public class CarService {
       return CarMapper.toDtoList(carRepository.findAll());
     }
 
+    public List<CarDto> getAllByUsername(String username){
+        return CarMapper.toDtoList(carRepository.findAllByOwner_Username(username));
+    }
+
     public CarDto getById(Long id){
      return  CarMapper.toDto(carRepository.findById(id).get());
     }

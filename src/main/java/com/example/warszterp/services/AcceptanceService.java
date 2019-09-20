@@ -29,7 +29,7 @@ public class AcceptanceService {
 
          User user = userService.getDataAndSave(dataDto);
          Car car = carService.getDataAndSave(dataDto, user);
-         repairService.getDataAndSave(dataDto, user, car);
+         repairService.getDataAndSave(dataDto, car);
     }
 
     public List<RepairDto> getAll(){
