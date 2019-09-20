@@ -47,7 +47,7 @@ public class CalendarService {
     }
 
     public List<CalendarDTO> getSevenDaysEvent(LocalDate localDate, LocalDate localDate2) {
-        List<Calendar> list = calendarRepository.getAllByStartDateOrStopDateIsBetween(localDate, localDate2);
+        List<Calendar> list = calendarRepository.findAll();
         return list.stream().map(CalendarMapper::toDTO).collect(Collectors.toList());
     }
 }

@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface CalendarRepository extends JpaRepository<Calendar, Long> {
     List<Calendar> getAllByStopDateAfter(LocalDateTime localDateTime);
-    List<Calendar> getAllByStartDateOrStopDateIsBetween(LocalDate startDate, LocalDate stopDate);
+//    List<Calendar> getAllByStartDateOrStopDateIsBetween(LocalDate startDate, LocalDate stopDate);
 }
