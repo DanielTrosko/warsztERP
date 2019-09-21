@@ -1,5 +1,4 @@
 package com.example.warszterp.controller;
-
 import com.example.warszterp.dto.CarPhotoDTO;
 import com.example.warszterp.model.entities.CarPhoto;
 import com.example.warszterp.model.repositories.RepairRepository;
@@ -12,29 +11,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.IOException;
-
 @Controller
 @RequestMapping(value = "/car/photo")
 public class CarPhotoController {
     private CarPhotoService carPhotoService;
     private RepairRepository repairRepository;
-
-
     public CarPhotoController(CarPhotoService carPhotoService, RepairRepository repairRepository) {
         this.carPhotoService = carPhotoService;
         this.repairRepository = repairRepository;
     }
-
     @GetMapping(value = "/add/")
-    public String preparePhotos(Long id, Model model) {
+    public String preparePhotos(@RequestParam Long id, Model model) {
         model.addAttribute("id", id);
+//        model.addAttribute("files", carPhotoService.getRepairPhotos(id));
         return "add_photo";
     }
-
     @PostMapping("/add/{id}")
-    public String uploadFiles(@RequestParam MultipartFile file, Model model, @PathVariable String id) throws IOException {
+    public String uploadFiles(@RequestParam MultipartFile file, Model model, @PathVariable Long id) throws IOException {
         if (file == null || file.getBytes().length == 0) {
             model.addAttribute("error", "Brak pliku");
             return "redirect:/views/cos";
@@ -43,17 +37,16 @@ public class CarPhotoController {
             carPhotoDTO.setFileName(file.getOriginalFilename());
             carPhotoDTO.setContentType(file.getContentType());
             carPhotoDTO.setData(file.getBytes());
-            Long ids = Long.parseLong(id);
-            carPhotoDTO.setRepair(repairRepository.getOne(ids));
-            carPhotoService.addRepairPhoto(ids, carPhotoDTO);
-            model.addAttribute("add", "Photo was add");
-            model.addAttribute("files", carPhotoService.getRepairPhotos(ids));
+            carPhotoDTO.setRepair(repairRepository.getOne(id));
+            carPhotoService.addRepairPhoto(id, carPhotoDTO);
+            model.addAttribute("add", "Photo was added");
+            model.addAttribute("files", carPhotoService.getRepairPhotos(id));
+
             return "add_photo";
         }
         model.addAttribute("photo", "Only image");
-        return "add_photo";
+        return "/views/add_photo";
     }
-
     @GetMapping(value = "/show/{photoId}")
     @ResponseBody
     public ResponseEntity<Resource> loadPhoto(@PathVariable Long photoId){
