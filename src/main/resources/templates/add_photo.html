@@ -31,15 +31,15 @@
             <h2>Photo list</h2>
             <table>
                 <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Type</th>
+                    <th style="font-weight: bold">#</th>
+
+
                 </tr>
                 ​
                 <tr th:each="file:${files}">
                     <td th:text="${files.indexOf(file)+1}"></td>
-                    <td th:text="${file.fileName}"></td>
-                    <td th:text="${file.contentType}"></td>
+
+
                     <td> <img th:src="@{/car/photo/show/{id}(id=${file.id})}" style="width:200px; height:200px" alt="zdjecie"/>
                     </td>
                 </tr>

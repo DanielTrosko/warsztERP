@@ -43,8 +43,8 @@
                         <td th:text="${elem.car.plateNumber}"></td>
                         <td th:text="${elem.user.firstName} + ' ' + ${elem.user.surname}"></td>
                         <td>
-                            <a th:href="@{/car/acceptance/one(id=${elem.id})}" style="color:white; text-underline: #BCBCBC ">link</a> |
-                            <a th:href="@{/car/photo/add/(id=${elem.id})}" style="color:white; text-underline: #BCBCBC">Dodaj zdjęcie</a>
+                            <a th:href="@{/car/acceptance/one(id=${elem.id})}" style="color:white; text-underline: #BCBCBC ">Link</a> |
+                            <a th:href="@{/car/photo/add/(id=${elem.id})}" style="color:white; text-underline: #BCBCBC">Zdjęcia</a>
                         </td>
                         <td>
                             <a th:href="@{/employee/pdf/generated/(id=${elem.id})}" style="color:white; text-underline: #BCBCBC ">PDF</a>

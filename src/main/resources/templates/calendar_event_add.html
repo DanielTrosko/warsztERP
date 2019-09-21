@@ -18,34 +18,50 @@
 
 <section class="main">
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <form action="#" th:action="@{/calendar/add}" method="post" th:object="${event}">
                 <input th:field="*{id}" hidden="true">
 
-                <label for="name">Event name</label>
-                <input id="name" type="text" th:field="*{name}">
+                <div class="md-form">
+                    <label for="name">Event name</label>
+                    <input id="name" type="text" class="form-class" th:field="*{name}">
+                </div>
+
 <br>
-                <label for="startDate">Start Date</label>
-                <input id="startDate" type="date" th:field="*{startDate}">
+                <div class="md-form">
+                    <label for="startDate">Start Date</label>
+                    <input id="startDate" type="date" class="form-class" th:field="*{startDate}">
+                </div>
+
                 <br>
-                <label for="stopDate">Stop Date</label>
-                <input id="stopDate" type="date" th:field="*{stopDate}">
+                <div class="md-form">
+                    <label for="stopDate">Stop Date</label>
+                    <input id="stopDate" type="date" class="form-class" th:field="*{stopDate}">
+
+                </div>
+
                 <br>
-                <label for="description">Description</label>
-                <input id="description" type="text" th:field="*{description}">
+                <div class="md-form">
+                    <label for="description">Description</label>
+                    <input id="description" class="form-class" type="text" th:field="*{description}">
+                </div>
+
                 <br>
-                <label for="employee">Employee</label>
-<!--                <input id="employee" type="text" th:field="${#authentication.getPrincipal().getUsername()}">-->
-                <input id="employee" type="text" th:field="*{employee}">
+                <div class="md-form">
+                    <label for="employee">Employee</label>
+                    <!--                <input id="employee" type="text" th:field="${#authentication.getPrincipal().getUsername()}">-->
+                    <input id="employee" class="form-class" type="text" th:field="*{employee}">
+                </div>
+
                 <br>
                 <label for="repairs">Repair</label>
-                <select id="repairs" name="repair">
+                <select id="repairs" class="browser-default custom-select" name="repair">
                     <option th:each="repairs : ${repair}"
                             th:value="${repairs}"
                             th:text="${repairs}">
                     </option>
                 </select>
-                <button value="submit" type="submit">Add</button>
+                <button value="submit" class="btn btn-primary" type="submit">Add</button>
 
 
             </form>
