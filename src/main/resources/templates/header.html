@@ -16,7 +16,7 @@
 
 
 <nav class="mb-1 navbar navbar-expand-lg navbar-dark elegant-color mb-5">
-    <a class="navbar-brand" th:href="@{/}"><img th:src="@{images}"></a>
+    <a class="navbar-brand" th:href="@{/}"><img th:src="@{image/logo.png}"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
             aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -42,6 +42,20 @@
 
                 </div>
             </li>
+
+            <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-33" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Admin Menu
+                </a>
+                <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-33">
+                    <a th:href="@{/admin/user}" class="dropdown-item">Lista użytkowników</a>
+                    <a th:href="@{/admin/user/add}" class="dropdown-item">Dodaj użytkownika</a>
+                    <a th:href="@{/admin/car}" class="dropdown-item">Lista pojazdów</a>
+                    <a th:href="@{/admin/car/add}" class="dropdown-item">Dodaj pojazd</a>
+                    <a th:href="@{/admin/repairs}" class="dropdown-item">Lista napraw</a>
+                </div>
+            </li>
+
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item">

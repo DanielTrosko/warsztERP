@@ -34,7 +34,7 @@
                     <td th:text="${histElem.mechanicId.firstName + ' ' + histElem.mechanicId.surname}"></td>
                     <td th:text="${histElem.note}"></td>
                     <th sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a th:href="@{'/admin/history/edit/' + ${histElem.id}}">edytuj</a> | <a th:href="@{/admin/history/del(noteId=${histElem.id}, repairId=${histElem.repairId.id})}">usuń</a></th>
+                        <a th:href="@{'/admin/history/edit/' + ${histElem.id}}" style="color:white">edytuj</a> | <a th:href="@{/admin/history/del(noteId=${histElem.id}, repairId=${histElem.repairId.id})}" style="color:white">usuń</a></th>
                 </tr>
                 </tbody>
             </table>

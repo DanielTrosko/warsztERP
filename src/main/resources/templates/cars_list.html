@@ -39,8 +39,8 @@
                     <td th:text="${elem.owner.surname} + ' ' + ${elem.owner.firstName}"></td>
                     <td> - </td><br>
                     <td sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a th:href="@{/admin/car/delete(id=${elem.id})}">usuń | </a>
-                        <a th:href="@{/admin/car/edit(id=${elem.id})}">edytuj</a>
+                        <a th:href="@{/admin/car/delete(id=${elem.id})}" style="color:white">usuń | </a>
+                        <a th:href="@{/admin/car/edit(id=${elem.id})}" style="color:white">edytuj</a>
                     </td>
                 </tr>
             </th:block>
